@@ -1,0 +1,46 @@
+<?php
+/**
+ * Ksolves
+ *
+ * @category    Ksolves
+ * @package     Ksolves_Bankpay
+ * @author      Ksolves Team
+ * @copyright   Copyright (c) Ksolves India Ltd.(https://www.ksolves.com/)
+ * @license     https://store.ksolves.com/magento-license
+ */
+
+/** @var Ksolves\Bankpay\Block\Sales\Order\View\BankpayPaymentInfo $block */
+
+$data = $block->getBankpayInformation(); 
+?>
+<div class="admin__page-section-item order-information">
+    <div class="admin__page-section-item-content">
+        <table class="admin__table-secondary bankpay-info">
+            <tbody>
+                <tr>
+                    <?php if ($data->getData('transaction_id')) : ?>
+                        <th><?php echo __('Transaction Id:') ?></th>
+                        <td><?= $data->getData('transaction_id') ?></td>
+                    <?php endif; ?>
+                </tr>
+                <tr>
+                    <?php if ($data->getData('transaction_status')) : ?>
+                        <th><?php echo __('Transaction Status:') ?></th>
+                        <td><?= $data->getData('transaction_status') ?></td>
+                    <?php endif; ?>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    require(['jquery'], function ($) {
+        $('.box-order-billing-method').append($('.bankpay-info'));
+    });
+</script>
+
+<div class="admin__page-section-item-content">
+    <table class="admin__table-secondary order-account-information-table"></table>
+</div>

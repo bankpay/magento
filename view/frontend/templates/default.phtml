@@ -1,0 +1,30 @@
+<!--
+/**
+ * Ksolves
+ *
+ * @category  Ksolves
+ * @package   Ksolves_Bankpay
+ * @author    Ksolves Team
+ * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
+ * @license   https://store.ksolves.com/magento-license
+ */
+ -->
+<?php if ($block->getWebsiteId()) : ?>
+    <?php if ($block->isOSMEnabled()) : ?>
+        <div charset="utf-8" id="bankpay.js" data-merchant-id="<?= $block->getMerchantId()?>" mode="<?= $block->getPaymentMode()?>"></div>
+        <script type="text/javascript">
+            require(
+                [
+                    "jquery",
+                    "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js",
+                    "https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.6/dialog-polyfill.min.js"
+                ], 
+                function ($,cryptoLib,dialogPolyFill) {
+                    window.CryptoJS = cryptoLib;
+                    window.dialogPolyfill = dialogPolyFill;
+                    $.getScript("https://cdnjs.bankpay.to/js/bankpay_osm.js", function() {});
+            });
+        </script>
+    <?php endif; ?>   
+<?php endif; ?>   
+

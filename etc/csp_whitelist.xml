@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Ksolves
+ *
+ * @category  Ksolves
+ * @package   Ksolves_Bankpay
+ * @author    Ksolves Team
+ * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
+ * @license   https://store.ksolves.com/magento-license
+ */
+ -->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="bankpay-sdk" type="host">https://cdnjs.bankpay.to/</value>
+                <value id="crypto-js" type="host">https://cdnjs.cloudflare.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="verify-js" type="host">http://3.8.226.126</value>
+                <value id="staging-api" type="host">https://api-staging.bankpay.to</value>
+                <value id="staging-live-api" type="host">https://api-staging-live.bankpay.to</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
+

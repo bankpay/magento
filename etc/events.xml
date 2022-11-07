@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ksolves
+ *
+ * @category  Ksolves
+ * @package   Ksolves_Bankpay
+ * @author    Ksolves Team
+ * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
+ * @license   https://store.ksolves.com/magento-license
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="shortcut_buttons_container">
+        <observer name="bankpay_payments_express_messages" instance="Ksolves\Bankpay\Observer\AddOnSiteMessage"/>
+    </event>
+    <event name="payment_method_is_active">
+        <observer name="bankpay_payment" instance="Ksolves\Bankpay\Observer\PaymentMethodAvailable" />
+    </event>
+</config>

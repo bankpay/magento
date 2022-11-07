@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ksolves
+ *
+ * @category  Ksolves
+ * @package   Ksolves_Bankpay
+ * @author    Ksolves Team
+ * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
+ * @license   https://store.ksolves.com/magento-license
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="header.container">
+            <block class="Ksolves\Bankpay\Block\OnsiteMessage" name="osm" after="-" template="Ksolves_Bankpay::default.phtml"/>
+        </referenceBlock>
+        <!-- <referenceContainer name="minicart.addons">
+           <block class="Ksolves\Bankpay\Block\OnsiteMessage" name="minicart_message" template="Ksolves_Bankpay::cart/minicart_message.phtml"></block>
+        </referenceContainer> -->
+    </body> 
+</page>

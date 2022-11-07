@@ -1,0 +1,22 @@
+{
+    "name": "ksolves/bankpay",
+    "type": "magento2-module",
+    "description": "Shared component for accepting online payments in Magento 2 using the Bankpay payment gateway.",
+    "version": "1.0.0",
+    "require": {
+        "magento/module-checkout": "100.4.*",
+        "magento/module-payment": "100.4.*",
+        "magento/module-sales": "103.0.*",
+        "magento/module-customer": "103.0.*"
+    },
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Ksolves\\Bankpay\\": ""
+        }
+    }
+}

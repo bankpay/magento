@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+ * Ksolves
+ *
+ * @category  Ksolves
+ * @package   Ksolves_Bankpay
+ * @author    Ksolves Team
+ * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
+ * @license   https://store.ksolves.com/magento-license
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!-- create bankpay transaction -->
+    <table name="bankpay_transaction" resource="default" comment="Bankpay transaction">
+        <column xsi:type="int" name="id" padding="10" identity="true" unsigned="true" nullable="false" comment="Id"/>
+        <column xsi:type="int" name="quote_id" nullable="false" unsigned="true" padding="10" comment="Quote Id"/>
+        <column xsi:type="text" name="transaction_id" nullable="false" comment="Transaction Id"/>
+        <column xsi:type="int" name="order_id" nullable="false" unsigned="true" padding="10" comment="Order Id"/>
+        <column xsi:type="text" name="transaction_status" nullable="false" comment="Status"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false"
+            default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false"
+            default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="bankpay_transaction" indexType="fulltext">
+            <column name="transaction_status"/>
+        </index>
+        <constraint xsi:type="foreign" referenceId="BANKPAY_TRANSACTION_QUOTE_ID_QUOTE_ENTITY_ID" table="bankpay_transaction" column="quote_id" referenceTable="quote" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="BANKPAY_TRANSACTION_ORDER_ID_SALES_ORDER_ENTITY_ID" table="bankpay_transaction" column="order_id" referenceTable="sales_order" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+    <!-- create Quote Column-->
+    <table name="quote" resource="default" comment="Quote">
+        <column xsi:type="text" name="bankpay_transaction_id" nullable="false" comment="Bankpay Transaction Id"/>
+    </table>
+</schema>

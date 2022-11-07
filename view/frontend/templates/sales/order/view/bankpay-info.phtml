@@ -1,0 +1,33 @@
+<?php
+/**
+ * Ksolves
+ *
+ * @category    Ksolves
+ * @package     Ksolves_Deliverydate
+ * @author      Ksolves Team
+ * @copyright   Copyright (c) Ksolves India Ltd.(https://www.ksolves.com/)
+ * @license     https://store.ksolves.com/magento-license
+ */
+
+/** @var Ksolves\Deliverydate\Block\Sales\Order\View\DeliveryDateInfo $block */
+
+$data = $block->getBankpayInformation();
+
+?>
+<div class="box-content bankpay-payment-info">
+    <?php if ($data->getData('transaction_id')) : ?>
+        <strong><?php echo __('Transaction Id:') ?></strong>
+        <br><span><?= $data->getData('transaction_id') ?></span>
+    <?php endif; ?>
+
+    <?php if ($data->getData('transaction_status')) : ?>
+        <br><strong><?php echo __('Transaction Status:') ?></strong>
+        <span><?= $data->getData('transaction_status') ?></span>
+    <?php endif; ?>
+</div>
+
+<script type="text/javascript">
+    require(['jquery'], function ($) {
+        $('.box-order-billing-method').append($('.bankpay-payment-info'));
+    });
+</script>

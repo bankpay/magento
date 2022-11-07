@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ksolves
+ *
+ * @category  Ksolves
+ * @package   Ksolves_Bankpay
+ * @author    Ksolves Team
+ * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
+ * @license   https://store.ksolves.com/magento-license
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Customer:etc/sections.xsd">
+    <action name="checkout/onepage/success">
+        <section name="cart"/>
+    </action>
+    <action name="bankpay/payment/webhook">
+        <section name="cart"/>
+    </action>
+</config>

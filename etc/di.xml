@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ksolves
+ *
+ * @category  Ksolves
+ * @package   Ksolves_Bankpay
+ * @author    Ksolves Team
+ * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
+ * @license   https://store.ksolves.com/magento-license
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Ksolves\Bankpay\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Ksolves\Bankpay\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">bankpay</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Ksolves\Bankpay\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Config\Model\Config">
+        <plugin name="bankpay_admin_system_config_save_plugin" type="\Ksolves\Bankpay\Plugin\ConfigPlugin" sortOrder="1"/>
+    </type>
+    <!-- Override Creditmemo Refund Button    -->
+    <preference for="\Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Items" type="\Ksolves\Bankpay\Block\Adminhtml\Order\Creditmemo\Create\Items"/>
+</config>

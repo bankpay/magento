@@ -1,0 +1,63 @@
+<!--
+ * Ksolves
+ *
+ * @category  Ksolves
+ * @package   Ksolves_Bankpay
+ * @author    Ksolves Team
+ * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
+ * @license   https://store.ksolves.com/magento-license
+ */ 
+-->
+<?php
+  $savedMethodsBlock = $block->getLayout()->createBlock('Ksolves\Bankpay\Block\Adminhtml\SelectPaymentMethod');
+  $adminQuoteData = $savedMethodsBlock->getCurrentAdminQuote();
+  $customer_email = $adminQuoteData->getData('customer_email');
+  $grand_total = (int) number_format($adminQuoteData->getData('grand_total'), 2, ".", "");
+
+?>
+<div class="fieldset indent" id="bankpay-area" style="display:none;">
+  <script defer src="https://cdnjs.bankpay.to/js/bankpay_checkout.js" charset="utf-8" id="bankpay.js" data-merchant-id="<?= $savedMethodsBlock->getMerchantId()?>" mode="<?= $savedMethodsBlock->getMode()?>"></script>
+  <bankpay-checkout data-cart-value="<?= $grand_total ?>" data-cart-currency="GBP" data-show-credits="true" data-theme="<?= $savedMethodsBlock->getThemeColour()?>"></bankpay-checkout>
+  <input type="hidden" id="email" value="<?= $customer_email ?>">
+</div>
+
+<style type="text/css">
+  #bkpy-info-id{
+  pointer-events: none;
+}
+</style>
+
+<script>
+require(['jquery'], function($){
+  $(document).ready(function(){
+    // payment redio button change event
+    $('body').on('change', 'input:radio', function(){
+        if($(this).val() == 'bankpay'){
+          $("#bankpay-area").show();
+        }else{
+          $("#bankpay-area").hide();
+        }
+    });
+    // on bankpay button click
+    $('body').on('click', '#btn-bankpay-checkout', function(event){
+      event.preventDefault();
+      var email = $('#email').val();
+      $.ajax({
+         url: "<?php echo $this->getUrl('bankpay/payment/merchantapi') ?>",
+          type: "POST",
+          data: {email:email},
+          showLoader: true,
+          cache: false,
+          success: function(response){
+            if (response.code==201) {
+                doCheckOut(response.data.txn_id);
+            } else {
+                console.log('error');
+            }
+          }
+      });
+    });
+
+  });
+});
+</script>

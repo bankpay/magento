@@ -1,0 +1,21 @@
+<?php
+/**
+ * Ksolves
+ *
+ * @category    Ksolves
+ * @package     Ksolves_Bankpay
+ * @author      Ksolves Team
+ * @copyright   Copyright (c) Ksolves India Ltd.(https://www.ksolves.com/)
+ * @license     https://store.ksolves.com/magento-license
+ */
+
+/** @var $block \Ksolves\Bankpay\Block\OnsiteMessage */
+?>
+<?php if ($block->getWebsiteId()) : ?>
+    <?php if ($block->isEnabled("mini_cart_popup")) : ?>
+
+        <bankpay-osm data-cart-currency="GBP" data-amount="<?= $block->getQuoteTotal()?>" data-theme="<?= $block->getThemeColour("mini_cart_popup")?>" data-logo-theme="<?= $block->getLogoThemeColour("mini_cart_popup")?>" data-key="product_and_cart">
+        </bankpay-message>
+        
+    <?php endif; ?>
+<?php endif; ?>   
