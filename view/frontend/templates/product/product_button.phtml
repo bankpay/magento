@@ -3,19 +3,19 @@
  * Ksolves
  *
  * @category    Ksolves
- * @package     Ksolves_Bankpay
+ * @package     Ksolves_Fam
  * @author      Ksolves Team
  * @copyright   Copyright (c) Ksolves India Ltd.(https://www.ksolves.com/)
  * @license     https://store.ksolves.com/magento-license
  */
 
-/** @var $block \Ksolves\Bankpay\Block\OnsiteMessage */
+/** @var $block \Ksolves\Fam\Block\OnsiteMessage */
 ?>
 <?php if ($block->getWebsiteId()) : ?>
     <?php if ($block->isEnabled("product_detail_page")) : ?>
 
-        <bankpay-osm data-cart-currency="GBP" data-amount="<?= $block->getPriceById()?>" data-theme="<?= $block->getThemeColour("product_detail_page")?>" data-logo-theme="<?= $block->getLogoThemeColour("product_detail_page")?>" data-key="product_and_cart">
-        </bankpay-message>
+        <fam-osm data-widget-type="callout" data-currency="GBP" data-total-amount="<?= $block->getPriceById() * 100?>" data-theme="<?= $block->getThemeColour("product_detail_page")?>" data-border-style="<?= $block->getLogoThemeColour("product_detail_page")?>">
+        </fam-osm>
         
     <?php endif; ?>
 <?php endif; ?>  

@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category    Ksolves
- * @package     Ksolves_Bankpay
+ * @package     Ksolves_Fam
  * @author      Ksolves Team
  * @copyright   Copyright (c) Ksolves India Ltd.(https://www.ksolves.com/)
  * @license     https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Block\Sales\Order\View;
+namespace Ksolves\Fam\Block\Sales\Order\View;
 
 use Magento\Framework\DataObject;
 use Magento\Framework\Registry;
@@ -17,9 +17,9 @@ use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 
 /**
- * Class BankpayPaymentInfo
+ * Class FamPaymentInfo
  */
-class BankpayPaymentInfo extends Template
+class FamPaymentInfo extends Template
 {
     /**
      * @type Registry|null
@@ -27,20 +27,20 @@ class BankpayPaymentInfo extends Template
     protected $registry = null;
 
     /**
-     * @var \Ksolves\Bankpay\Helper\Data
+     * @var \Ksolves\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
      * @param Context $context
      * @param Registry $registry
-     * @param \Ksolves\Bankpay\Helper\Data $dataHelper
+     * @param \Ksolves\Fam\Helper\Data $dataHelper
      * @param array $data
      */
     public function __construct(
         Context $context,
         Registry $registry,
-        \Ksolves\Bankpay\Helper\Data $dataHelper,
+        \Ksolves\Fam\Helper\Data $dataHelper,
         array $data = []
     ) {
         $this->registry = $registry;
@@ -49,11 +49,11 @@ class BankpayPaymentInfo extends Template
     }
 
     /**
-     * Get bankpay information 
+     * Get fam information 
      *
      * @return DataObject
      */
-    public function getBankpayInformation()
+    public function getFamInformation()
     {
         $result = [];
 

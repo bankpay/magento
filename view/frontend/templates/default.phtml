@@ -3,7 +3,7 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
@@ -11,7 +11,7 @@
  -->
 <?php if ($block->getWebsiteId()) : ?>
     <?php if ($block->isOSMEnabled()) : ?>
-        <div charset="utf-8" id="bankpay.js" data-merchant-id="<?= $block->getMerchantId()?>" mode="<?= $block->getPaymentMode()?>"></div>
+        <div charset="utf-8" id="fam.js" data-merchant-id="<?= $block->getMerchantId()?>" data-environment="<?= $block->getPaymentMode()?>"></div>
         <script type="text/javascript">
             require(
                 [
@@ -22,7 +22,7 @@
                 function ($,cryptoLib,dialogPolyFill) {
                     window.CryptoJS = cryptoLib;
                     window.dialogPolyfill = dialogPolyFill;
-                    $.getScript("https://cdnjs.bankpay.to/js/bankpay_osm.js", function() {});
+                    $.getScript("https://js.joinfam.com/v1/fam.js", function() {});
             });
         </script>
     <?php endif; ?>   

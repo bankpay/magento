@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Controller\Adminhtml\Payment;
+namespace Ksolves\Fam\Controller\Adminhtml\Payment;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Config\ScopeConfigInterface;
@@ -25,7 +25,7 @@ class Merchantapi extends \Magento\Backend\App\Action
     protected $backendQuoteSession;
 
     /**
-     * @var \Ksolves\Bankpay\Helper\Data
+     * @var \Ksolves\Fam\Helper\Data
     */
     protected $dataHelper;
 
@@ -35,7 +35,7 @@ class Merchantapi extends \Magento\Backend\App\Action
     protected $urlBuider;
 
     /**
-     * @var \Ksolves\Bankpay\Logger\Logger
+     * @var \Ksolves\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -44,16 +44,16 @@ class Merchantapi extends \Magento\Backend\App\Action
      *
      * @param Context $context
      * @param \Magento\Backend\Model\Session\Quote $backendQuoteSession
-     * @param \Ksolves\Bankpay\Helper\Data $dataHelper
+     * @param \Ksolves\Fam\Helper\Data $dataHelper
      * @param \Magento\Framework\UrlInterface $urlBuilder
-     * @param \Ksolves\Bankpay\Logger\Logger $logger
+     * @param \Ksolves\Fam\Logger\Logger $logger
      */
     public function __construct(
         Context $context,
         \Magento\Backend\Model\Session\Quote $backendQuoteSession,
-        \Ksolves\Bankpay\Helper\Data $dataHelper,
+        \Ksolves\Fam\Helper\Data $dataHelper,
         \Magento\Framework\UrlInterface $urlBuilder,
-        \Ksolves\Bankpay\Logger\Logger $logger
+        \Ksolves\Fam\Logger\Logger $logger
     ) {
         parent::__construct($context);
         $this->backendQuoteSession = $backendQuoteSession; 
@@ -82,10 +82,11 @@ class Merchantapi extends \Magento\Backend\App\Action
     */
     protected function adminTransactionsApi($email)
     {
-        $successUrl = $this->urlBuilder->getUrl('bankpay/payment/success');
-        $cancelUrl = $this->urlBuilder->getUrl('bankpay/payment/cancel');
+        $successUrl = $this->urlBuilder->getUrl('fam/payment/success');
+        $cancelUrl = $this->urlBuilder->getUrl('fam/payment/cancel');
+
         $admin_quote = $this->backendQuoteSession->getQuote();
-        $payload_data = $this->dataHelper->merchantApiPayloadData($admin_quote,$email,$successUrl,$cancelUrl);
+        $payload_data = $this->dataHelper->merchantApiPayloadData($admin_quote,$email,$successUrl,$cancelUrl,true);
         $this->_logger->info('Admin-> payload data ---');
         $this->_logger->info("<pre>===");
         $this->_logger->info(print_r($payload_data,true));

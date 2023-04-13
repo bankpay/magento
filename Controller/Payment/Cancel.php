@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Controller\Payment;
+namespace Ksolves\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 
@@ -19,24 +19,24 @@ use Magento\Framework\Controller\ResultFactory;
 class Cancel extends \Magento\Framework\App\Action\Action
 {
     /**
-     * @var \Ksolves\Bankpay\Helper\Data
+     * @var \Ksolves\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ksolves\Bankpay\Logger\Logger
+     * @var \Ksolves\Fam\Logger\Logger
     */
     protected $_logger;
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
-     * @param \Ksolves\Bankpay\Helper\Data $dataHelper
-     * @param \Ksolves\Bankpay\Logger\Logger $logger
+     * @param \Ksolves\Fam\Helper\Data $dataHelper
+     * @param \Ksolves\Fam\Logger\Logger $logger
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
-        \Ksolves\Bankpay\Helper\Data $dataHelper,
-        \Ksolves\Bankpay\Logger\Logger $logger
+        \Ksolves\Fam\Helper\Data $dataHelper,
+        \Ksolves\Fam\Logger\Logger $logger
     ) {
         parent::__construct($context);
         $this->dataHelper = $dataHelper;
@@ -52,7 +52,7 @@ class Cancel extends \Magento\Framework\App\Action\Action
     {
         $this->_logger->info('Frontend-> cancel controller call ===');
         try {
-            $this->messageManager->addErrorMessage($e->getMessage());
+            // $this->messageManager->addErrorMessage($e->getMessage());
             return $this->resultRedirectFactory->create()->setPath(
                 'checkout/cart/index',
                 ['_secure' => $this->getRequest()->isSecure()]

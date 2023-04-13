@@ -3,19 +3,19 @@
  * Ksolves
  *
  * @category    Ksolves
- * @package     Ksolves_Bankpay
+ * @package     Ksolves_Fam
  * @author      Ksolves Team
  * @copyright   Copyright (c) Ksolves India Ltd.(https://www.ksolves.com/)
  * @license     https://store.ksolves.com/magento-license
  */
 
-/** @var Ksolves\Bankpay\Block\Sales\Order\View\BankpayPaymentInfo $block */
+/** @var Ksolves\Fam\Block\Sales\Order\View\FamPaymentInfo $block */
 
-$data = $block->getBankpayInformation(); 
+$data = $block->getFamInformation(); 
 ?>
 <div class="admin__page-section-item order-information">
     <div class="admin__page-section-item-content">
-        <table class="admin__table-secondary bankpay-info">
+        <table class="admin__table-secondary fam-info">
             <tbody>
                 <tr>
                     <?php if ($data->getData('transaction_id')) : ?>
@@ -37,7 +37,7 @@ $data = $block->getBankpayInformation();
 
 <script type="text/javascript">
     require(['jquery'], function ($) {
-        $('.box-order-billing-method').append($('.bankpay-info'));
+        $('.box-order-billing-method').append($('.fam-info'));
     });
 </script>
 

@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Controller\Adminhtml\System\Config;
+namespace Ksolves\Fam\Controller\Adminhtml\System\Config;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -27,7 +27,7 @@ class ConfigureWebhook extends Action
     protected $resultJsonFactory;
 
     /**
-     * @var \Ksolves\Bankpay\Helper\Data
+     * @var \Ksolves\Fam\Helper\Data
     */
     protected $dataHelper;
 
@@ -37,7 +37,7 @@ class ConfigureWebhook extends Action
     protected $_storeManager;
 
     /**
-     * @var \Ksolves\Bankpay\Logger\Logger
+     * @var \Ksolves\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -54,29 +54,29 @@ class ConfigureWebhook extends Action
     const CURL_WEBHOOK_STATUS = '200';
 
     /**
-     * @var \Ksolves\Bankpay\Model\Config
+     * @var \Ksolves\Fam\Model\Config
     */
     protected $config;
 
     /**
      * @param Context $context
      * @param JsonFactory $resultJsonFactory
-     * @param \Ksolves\Bankpay\Helper\Data $dataHelper
-     * @param \Ksolves\Bankpay\Logger\Logger $logger 
+     * @param \Ksolves\Fam\Helper\Data $dataHelper
+     * @param \Ksolves\Fam\Logger\Logger $logger 
      * @param \Magento\Framework\HTTP\Client\Curl $curl
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
-     * @param \Ksolves\Bankpay\Model\Config $config
+     * @param \Ksolves\Fam\Model\Config $config
      */
     public function __construct(
         Context $context,
         JsonFactory $resultJsonFactory,
-        \Ksolves\Bankpay\Helper\Data $dataHelper,
+        \Ksolves\Fam\Helper\Data $dataHelper,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Ksolves\Bankpay\Logger\Logger $logger,
+        \Ksolves\Fam\Logger\Logger $logger,
         \Magento\Framework\HTTP\Client\Curl $curl,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
-        \Ksolves\Bankpay\Model\Config $config
+        \Ksolves\Fam\Model\Config $config
 
     ) {
         $this->resultJsonFactory = $resultJsonFactory;
@@ -125,7 +125,7 @@ class ConfigureWebhook extends Action
     */
     public function webhookPayloadData($webhookPlatform)
     {   
-        $webhookUrl = $this->_storeManager->getStore()->getBaseUrl().'bankpay/payment/webhook';
+        $webhookUrl = $this->_storeManager->getStore()->getBaseUrl().'fam/payment/webhook';
         $payload_data = array(
             "callback_url" => $webhookUrl,
             "webhook_platform" => $webhookPlatform
@@ -144,7 +144,7 @@ class ConfigureWebhook extends Action
     public function webhookApiCurl($requestData,$params)
     {
         try {
-            $this->_logger->info("Bankpay Webhook Api start---");
+            $this->_logger->info("Fam Webhook Api start---");
             $webhookUrl = $this->config->getClientUrl().'/api/v1/seller/webhook-detail';
 
             $this->curlClient->addHeader("Content-Type","application/json");
@@ -157,16 +157,16 @@ class ConfigureWebhook extends Action
             $startTime = microtime(true);
             $this->curlClient->post($webhookUrl, $requestData); //data post here
             $endTime = (microtime(true) - $startTime);
-            $this->_logger->info("Bankpay Refund Api performance--- " . "Elapsed time is: ". $endTime . " seconds");
+            $this->_logger->info("Fam Refund Api performance--- " . "Elapsed time is: ". $endTime . " seconds");
      
             $httpStatusCode = $this->curlClient->getStatus();
             $response = $this->curlClient->getBody();
 
-            $this->_logger->info("Bankpay Webhook Api response--- " . $response);
+            $this->_logger->info("Fam Webhook Api response--- " . $response);
             return $this->jsonHelper->unserialize($response);
 
         } catch (\Exception $e) {
-            $this->_logger->info("Bankpay Webhook error response api---" . $e);
+            $this->_logger->info("Fam Webhook error response api---" . $e);
             return [];
         }
     }

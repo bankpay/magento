@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Observer;
+namespace Ksolves\Fam\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
@@ -20,15 +20,15 @@ use Magento\Framework\Event\Observer;
 class PaymentMethodAvailable implements ObserverInterface
 {
     /**
-     * @var \Ksolves\Bankpay\Model\Config
+     * @var \Ksolves\Fam\Model\Config
      */
     protected $config;
     
     /**
-     * @param  \Ksolves\Bankpay\Model\Config $config,
+     * @param  \Ksolves\Fam\Model\Config $config,
      */
     public function __construct(
-        \Ksolves\Bankpay\Model\Config $config
+        \Ksolves\Fam\Model\Config $config
     ) {
         $this->config = $config;
     }
@@ -40,7 +40,7 @@ class PaymentMethodAvailable implements ObserverInterface
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        if($observer->getEvent()->getMethodInstance()->getCode()=="bankpay"){
+        if($observer->getEvent()->getMethodInstance()->getCode()=="fam"){
             if (!$this->getWebsiteId()) {
                 $checkResult = $observer->getEvent()->getResult();
                 $checkResult->setData('is_available', false); //this is disabling the payment method at checkout page

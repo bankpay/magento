@@ -11,10 +11,10 @@
 
 /** @var Ksolves\Deliverydate\Block\Sales\Order\View\DeliveryDateInfo $block */
 
-$data = $block->getBankpayInformation();
+$data = $block->getFamInformation();
 
 ?>
-<div class="box-content bankpay-payment-info">
+<div class="box-content fam-payment-info">
     <?php if ($data->getData('transaction_id')) : ?>
         <strong><?php echo __('Transaction Id:') ?></strong>
         <br><span><?= $data->getData('transaction_id') ?></span>
@@ -28,6 +28,6 @@ $data = $block->getBankpayInformation();
 
 <script type="text/javascript">
     require(['jquery'], function ($) {
-        $('.box-order-billing-method').append($('.bankpay-payment-info'));
+        $('.box-order-billing-method').append($('.fam-payment-info'));
     });
 </script>

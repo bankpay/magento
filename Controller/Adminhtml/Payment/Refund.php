@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Controller\Adminhtml\Payment;
+namespace Ksolves\Fam\Controller\Adminhtml\Payment;
 
 use Magento\Backend\App\Action\Context;
 
@@ -24,17 +24,17 @@ class Refund extends \Magento\Backend\App\Action
     protected $backendQuoteSession;
 
     /**
-     * @var \Ksolves\Bankpay\Helper\Data
+     * @var \Ksolves\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ksolves\Bankpay\Logger\Logger
+     * @var \Ksolves\Fam\Logger\Logger
     */
     protected $_logger;
 
     /**
-     * @var \Ksolves\Bankpay\Model\Config
+     * @var \Ksolves\Fam\Model\Config
     */
     protected $config;
 
@@ -91,9 +91,9 @@ class Refund extends \Magento\Backend\App\Action
      *
      * @param Context $context
      * @param \Magento\Backend\Model\Session\Quote $backendQuoteSession
-     * @param \Ksolves\Bankpay\Helper\Data $dataHelper
-     * @param \Ksolves\Bankpay\Logger\Logger $logger
-     * @param \Ksolves\Bankpay\Model\Config $config
+     * @param \Ksolves\Fam\Helper\Data $dataHelper
+     * @param \Ksolves\Fam\Logger\Logger $logger
+     * @param \Ksolves\Fam\Model\Config $config
      * @param \Magento\Framework\HTTP\Client\Curl $curl
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
      * @param \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
@@ -107,9 +107,9 @@ class Refund extends \Magento\Backend\App\Action
     public function __construct(
         Context $context,
         \Magento\Backend\Model\Session\Quote $backendQuoteSession,
-        \Ksolves\Bankpay\Helper\Data $dataHelper,
-        \Ksolves\Bankpay\Logger\Logger $logger,
-        \Ksolves\Bankpay\Model\Config $config,
+        \Ksolves\Fam\Helper\Data $dataHelper,
+        \Ksolves\Fam\Logger\Logger $logger,
+        \Ksolves\Fam\Model\Config $config,
         \Magento\Framework\HTTP\Client\Curl $curl,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
@@ -190,14 +190,14 @@ class Refund extends \Magento\Backend\App\Action
         $orderDetails = $this->_orderRepository->get($orderId);
         $payload_data =array(
             "amount" =>array(
-                "amount"=> (int) number_format($orderDetails->getGrandTotal(), 2, ".", ""),
+                "amount"=> number_format($orderDetails->getGrandTotal(), 2, ".", "") * 100,
                 "currency"=> $orderDetails->getOrderCurrencyCode()
             ),
-            "currency"=> $orderDetails->getOrderCurrencyCode(),
             "reason"=> "DUPLICATE",
             "other_info"=> "testing"
         );
         $jsonParams = $this->jsonHelper->serialize($payload_data);
+        
         return $jsonParams;
     }
 
@@ -210,8 +210,8 @@ class Refund extends \Magento\Backend\App\Action
     public function refundApiCurl($requestData,$transactionId)
     {
         try {
-            $this->_logger->info("Bankpay Refund Api start---");
-            $apiUrl = $this->config->getClientUrl().'/v1/payment/transactions/'.$transactionId.'/refund/';
+            $this->_logger->info("Fam Refund Api start---");
+            $apiUrl = $this->config->getClientUrl().'/v1/orders/'.$transactionId.'/refund/';
 
             $this->curlClient->addHeader("Content-Type","application/json");
             $this->curlClient->addHeader("MERCHANT-ID",$this->config->getKeyId()); 
@@ -222,16 +222,16 @@ class Refund extends \Magento\Backend\App\Action
             $startTime = microtime(true);
             $this->curlClient->post($apiUrl, $requestData); //data post here
             $endTime = (microtime(true) - $startTime);
-            $this->_logger->info("Bankpay Refund Api performance--- " . "Elapsed time is: ". $endTime . " seconds");
+            $this->_logger->info("Fam Refund Api performance--- " . "Elapsed time is: ". $endTime . " seconds");
      
             $httpStatusCode = $this->curlClient->getStatus();
             $response = $this->curlClient->getBody();
 
-            $this->_logger->info("Bankpay Refund Api response--- " . $response);
+            $this->_logger->info("Fam Refund Api response--- " . $response);
             return $this->jsonHelper->unserialize($response);
 
         } catch (\Exception $e) {
-            $this->_logger->info("Bankpay refund error response api---" . $e);
+            $this->_logger->info("Fam refund error response api---" . $e);
             return [];
         }
     }

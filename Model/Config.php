@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Model;
+namespace Ksolves\Fam\Model;
 
 use \Magento\Framework\App\Config\ScopeConfigInterface;
 use \Magento\Framework\App\Config\Storage\WriterInterface;
@@ -27,6 +27,7 @@ class Config
     const KEY_SECRET_KEY = 'key_secret';
     const KEY_MERCHANT_NAME = 'merchant_name';
     const KEY_THEME = 'theme';
+    const CHECKOUT_METHOD_KEY_THEME = 'checkout_method_theme';
     const KEY_CLIENT_URL = 'client_url';
     const KEY_ONSITE_MESSAGE_ENABLE = 'onsite_message_enable';
     const KEY_ONSITE_MESSAGE_OPTION = 'onsite_message_option';
@@ -37,7 +38,7 @@ class Config
     /**
      * @var string
      */
-    protected $methodCode = 'bankpay';
+    protected $methodCode = 'fam';
 
     /**
      * @var ScopeConfigInterface
@@ -113,9 +114,9 @@ class Config
     {
         $mode = $this->getMode();
         if ($mode == 'sandbox') {
-            return "https://api-staging.bankpay.to";
-        }elseif ($mode == 'production') {
-           return "https://api-staging-live.bankpay.to";
+            return "https://api-staging-sandbox.joinfam.com";
+        }elseif ($mode == 'live') {
+           return "https://api-staging-live.joinfam.com";
         }
     }
 
@@ -125,6 +126,14 @@ class Config
     public function getTheme()
     {
         return $this->getConfigData(self::KEY_THEME);
+    }
+
+    /**
+     * @return string
+     */
+    public function getCheckoutMethodTheme()
+    {
+        return $this->getConfigData(self::CHECKOUT_METHOD_KEY_THEME);
     }
 
     /**
@@ -205,7 +214,7 @@ class Config
     public function isEnabledConfig($location)
     {
     
-        return $this->getConfigData('bankpay_onsite_message/'.self::KEY_ONSITE_MESSAGE_ENABLE.'_'.$location);
+        return $this->getConfigData('fam_onsite_message/'.self::KEY_ONSITE_MESSAGE_ENABLE.'_'.$location);
         if (!$enabled)
             return false;
 
@@ -221,7 +230,7 @@ class Config
      */
     public function osmTheme($location)
     {
-        return $this->getConfigData('bankpay_onsite_message/'.$location.'_theme');    
+        return $this->getConfigData('fam_onsite_message/'.$location.'_theme');    
     }
     
     /**
@@ -229,7 +238,7 @@ class Config
      */
     public function osmLogoTheme($location)
     {
-        return $this->getConfigData('bankpay_onsite_message/'.$location.'_logo_theme');    
+        return $this->getConfigData('fam_onsite_message/'.$location.'_logo_theme');    
     }
         
     /**

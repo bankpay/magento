@@ -1,7 +1,7 @@
 {
-    "name": "ksolves/bankpay",
+    "name": "ksolves/fam",
     "type": "magento2-module",
-    "description": "Shared component for accepting online payments in Magento 2 using the Bankpay payment gateway.",
+    "description": "Shared component for accepting online payments in Magento 2 using the Fam payment gateway.",
     "version": "1.0.0",
     "require": {
         "magento/module-checkout": "100.4.*",
@@ -16,7 +16,7 @@
     "autoload": {
         "files": [ "registration.php" ],
         "psr-4": {
-            "Ksolves\\Bankpay\\": ""
+            "Ksolves\\Fam\\": ""
         }
     }
 }

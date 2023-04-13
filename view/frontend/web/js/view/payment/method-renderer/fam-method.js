@@ -2,13 +2,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
  
- define(
+define(
     [
         'Magento_Checkout/js/view/payment/default',
         'Magento_Checkout/js/model/quote',
@@ -30,29 +30,43 @@
 
         return Component.extend({
             defaults: {
-                template: 'Ksolves_Bankpay/payment/bankpay-form',
-                bankpayDataFrameLoaded: false,
+                template: 'Ksolves_Fam/payment/fam-form',
+                famDataFrameLoaded: false,
                 jsLib : ''
             },
             getMerchantName: function() {
-                return window.checkoutConfig.payment.bankpay.merchant_name;
+                return window.checkoutConfig.payment.fam.merchant_name;
+            },
+
+            jsLoader : function(){
+                window.CryptoJS = cryptolib;
+                
+                if(!self.famDataFrameLoaded) {
+                    self.jsLib = $.getScript("https://js.joinfam.com/v1/fam.js", function() {
+
+                    });
+                }
             },
 
             getKeyId: function() {
-                return window.checkoutConfig.payment.bankpay.key_id;
+                return window.checkoutConfig.payment.fam.key_id;
             },
 
             getTheme: function() {
-                return window.checkoutConfig.payment.bankpay.theme;
+                return window.checkoutConfig.payment.fam.theme;
+            },
+
+            getCheckoutMethodTheme: function() {
+                return window.checkoutConfig.payment.fam.checkout_method_theme;
             },
 
             getMode: function() {
-                return window.checkoutConfig.payment.bankpay.mode;
+                return window.checkoutConfig.payment.fam.mode;
             },
 
             getSubTotal: function() {
                 var totals = quote.totals();
-                return (totals ? totals : quote)['subtotal'];
+                return (totals ? totals : quote)['grand_total'] * 100;
             },
 
             context: function() {
@@ -64,7 +78,7 @@
             },
 
             getCode: function() {
-                return 'bankpay';
+                return 'fam';
             },
 
             isActive: function() {
@@ -72,7 +86,7 @@
             },
 
             isAvailable: function() {
-                return this.bankpayDataFrameLoaded;
+                return this.famDataFrameLoaded;
             },
 
             handleError: function (error) {
@@ -88,12 +102,8 @@
             initObservable: function() {
 
                 var self = this._super(); //Resolves UI Error on Checkout
-                window.CryptoJS = cryptolib;
-                if(!self.bankpayDataFrameLoaded) {
-                    self.jsLib = $.getScript("https://cdnjs.bankpay.to/js/bankpay_checkout.js", function() {
-                        
-                    });
-                }
+                
+
                 return self;
             },
 
@@ -120,7 +130,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: url.build('bankpay/payment/order'),
+                    url: url.build('fam/payment/order'),
                     data: {
                         email: email_address,
                         shipping_address: JSON.stringify(quote.shippingAddress()),
@@ -135,7 +145,7 @@
                         fullScreenLoader.stopLoader();
                         console.log(response);
                         if (response.code==201) {
-                            doCheckOut(response.data.txn_id);
+                            doCheckout(response.data.checkout_id);
                         } else {
                             console.log('error');
                         }

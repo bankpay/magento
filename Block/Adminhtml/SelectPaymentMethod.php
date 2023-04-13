@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Block\Adminhtml;
+namespace Ksolves\Fam\Block\Adminhtml;
 
 use Magento\Framework\Phrase;
 use Magento\Quote\Model\Quote;
@@ -26,17 +26,17 @@ class SelectPaymentMethod extends \Magento\Backend\Block\Widget\Form\Generic
     private $adminCheckoutSession;
 
     /**
-     * @var \Ksolves\Bankpay\Model\Config
+     * @var \Ksolves\Fam\Model\Config
     */
     protected $config;
     
     /**
      * @param AdminCheckoutSession $adminCheckoutSession
-     * @param \Ksolves\Bankpay\Model\Config $config
+     * @param \Ksolves\Fam\Model\Config $config
     */
     public function __construct(
         AdminCheckoutSession $adminCheckoutSession,
-        \Ksolves\Bankpay\Model\Config $config
+        \Ksolves\Fam\Model\Config $config
     ) {
         $this->adminCheckoutSession = $adminCheckoutSession;
         $this->config = $config;

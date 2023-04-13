@@ -2,23 +2,23 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */ -->
- <div class="payment-method bankpay" data-bind="css: {'_active': (getCode() == isChecked())}">
+ <div class="payment-method fam" data-bind="css: {'_active': (getCode() == isChecked())}" >
     <div class="payment-method-title field choice" style="display: flex;">
         <input type="radio"
                name="payment[method]"
                class="radio"
                data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
         <label data-bind="attr: {'for': getCode()}" class="label">
-            <div class="magento-checkout-bankpay-option-button">
-                <bankpay-checkout-option data-cart-currency="GBP" data-bind="
-                attr : {'data-theme': getTheme(),'data-cart-value':getSubTotal()}
-                ">
-                </bankpay-checkout-option>
+            <div class="magento-checkout-fam-option-button">
+                <fam-checkout-method data-currency="GBP" data-bind="
+                attr : {'data-theme': getCheckoutMethodTheme(),'data-total-amount':getSubTotal()}
+                " afterRender="jsLoader">
+                </fam-checkout-method>
             </div>
         </label>
     </div>
@@ -37,17 +37,17 @@
                 <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
         </div>
-        <div class="magento-checkout-bankpay-button">
+        <div class="magento-checkout-fam-button">
             <div class="actions-toolbar">
                 <div class="primary">
-                    <div charset="utf-8" id="bankpay.js" data-bind="attr:{'data-merchant-id': getKeyId(),'mode': getMode()}"></div>
-                    <bankpay-checkout data-cart-currency="GBP"
+                    <div charset="utf-8" id="fam.js" data-bind="attr:{'data-merchant-id': getKeyId(),'data-environment': getMode()}"></div>
+                    <fam-checkout-button data-currency="GBP"
                     data-bind="
                         click: preparePayment,
                         css: {disabled: !isPlaceOrderActionAllowed()},
                         enable: (getCode() == isChecked()),
-                        attr : {'data-theme': getTheme(),'data-cart-value':getSubTotal()}
-                        "></bankpay-checkout>
+                        attr : {'data-theme': getTheme(),'data-total-amount':getSubTotal()}
+                        "></fam-checkout-button>
                 </div>
             </div>
         </div>

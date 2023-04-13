@@ -4,7 +4,7 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
@@ -14,15 +14,21 @@
     <policies>
         <policy id="script-src">
             <values>
-                <value id="bankpay-sdk" type="host">https://cdnjs.bankpay.to/</value>
+                <value id="fam-sdk" type="host">https://js.joinfam.com</value>
                 <value id="crypto-js" type="host">https://cdnjs.cloudflare.com</value>
             </values>
         </policy>
         <policy id="connect-src">
             <values>
                 <value id="verify-js" type="host">http://3.8.226.126</value>
-                <value id="staging-api" type="host">https://api-staging.bankpay.to</value>
-                <value id="staging-live-api" type="host">https://api-staging-live.bankpay.to</value>
+                <value id="staging-api" type="host">https://api-staging.joinfam.to</value>
+                <value id="staging-live-api" type="host">https://api-staging-live.joinfam.to</value>
+            </values>
+        </policy>
+         <policy id="font-src">
+            <values>
+                <!--CDN-->
+                <value id="fonts" type="host">https://js.joinfam.com</value>
             </values>
         </policy>
     </policies>

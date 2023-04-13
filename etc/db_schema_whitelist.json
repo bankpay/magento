@@ -1,5 +1,5 @@
 {
-    "bankpay_transaction": {
+    "fam_transaction": {
         "column": {
             "Id": true,
             "quote_id": true,

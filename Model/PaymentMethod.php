@@ -3,12 +3,12 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
 */
-namespace Ksolves\Bankpay\Model;
+namespace Ksolves\Fam\Model;
  
 /**
 * Class PaymentMethod
@@ -20,7 +20,7 @@ class PaymentMethod extends \Magento\Payment\Model\Method\AbstractMethod
      *
      * @var string
      */
-    const METHOD_CODE = 'bankpay';
+    const METHOD_CODE = 'fam';
 
     /**
      * @var string

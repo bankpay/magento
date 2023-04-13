@@ -3,20 +3,20 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Controller\Payment;
+namespace Ksolves\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 
 /**
  * Success Class
  */
-class Success extends \Ksolves\Bankpay\Controller\BaseController
+class Success extends \Ksolves\Fam\Controller\BaseController
 {
     /**
      * @var \Magento\Quote\Model\Quote
@@ -29,32 +29,33 @@ class Success extends \Ksolves\Bankpay\Controller\BaseController
     protected $checkoutSession;
 
     /**
-     * @var \Ksolves\Bankpay\Helper\Data
+     * @var \Ksolves\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ksolves\Bankpay\Logger\Logger
+     * @var \Ksolves\Fam\Logger\Logger
     */
     protected $_logger;
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
      * @param \Magento\Checkout\Model\Session $checkoutSession
-     * @param \Ksolves\Bankpay\Helper\Data $dataHelper
+     * @param \Ksolves\Fam\Helper\Data $dataHelper
      * @param Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface
      * @param Magento\Quote\Api\CartManagementInterface $cartManagementInterface
      * @param Magento\Sales\Model\Order $order
-     * @param \Ksolves\Bankpay\Logger\Logger $logger
+     * @param \Ksolves\Fam\Logger\Logger $logger
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Ksolves\Bankpay\Helper\Data $dataHelper,
+        \Ksolves\Fam\Helper\Data $dataHelper,
         \Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface,
         \Magento\Quote\Api\CartManagementInterface $cartManagementInterface,
         \Magento\Sales\Model\Order $order,
-        \Ksolves\Bankpay\Logger\Logger $logger
+        \Ksolves\Fam\Logger\Logger $logger,
+        \Magento\Quote\Model\QuoteManagement $quoteManagement
     ) {
         parent::__construct($context,$checkoutSession);
         $this->dataHelper = $dataHelper;
@@ -62,6 +63,8 @@ class Success extends \Ksolves\Bankpay\Controller\BaseController
         $this->cartManagementInterface = $cartManagementInterface;
         $this->order = $order;
         $this->_logger = $logger;
+        $this->cartRepositoryInterface = $cartRepositoryInterface;
+        $this->quoteManagement = $quoteManagement;
     }
     
    /**
@@ -71,34 +74,37 @@ class Success extends \Ksolves\Bankpay\Controller\BaseController
      */
     public function execute()
     {
-        $data = $this->getRequest()->getParams(); // get the data from bankpay side
+        $data = $this->getRequest()->getParams(); // get the data from fam side
         $this->_logger->info('Success controller start ***');
         $this->_logger->info(print_r($data,true));
         try {
             if (!empty($data)) {
-                $transactionId = $data['transaction_id'];
-                $transactionStatus = $data['status'];
+                $checkout_id = $data['fam_checkout_id'];
+                $transactionId = $data['fam_order_id'];
+                $transactionStatus = 'Pending';
             }else{
                 $transactionId = null;
                 $transactionStatus = 'Pending';
             }
-            $orderData = $this->dataHelper->getOrderData($transactionId); //get orderdata from bankpay_transaction table
+            $orderData = $this->dataHelper->getOrderData($checkout_id); //get orderdata from fam_transaction table
             // Check order is created or not (comparision with webhook url)
             if (empty($orderData)) {
                 $this->_logger->info('success-> Order data not found ***');
                 $this->_logger->info(print_r($orderData,true));
                 // Create Order using quoteid
-                $quoteId = $this->dataHelper->getQuoteId($transactionId);
+                $quoteId = $this->dataHelper->getQuoteId($checkout_id);
                 if ($quoteId) {
                     $this->_logger->info('success-> Order creation process start ***');
                     $this->_logger->info($quoteId);
                     $quote = $this->cartRepositoryInterface->get($quoteId);
-                    $orderId = $this->cartManagementInterface->placeOrder($quote->getId());
+                    $this->_logger->info(print_r($quoteId,true));
+                    $orderId =$this->cartManagementInterface->placeOrder($quoteId);
                     $order = $this->order->load($orderId);
+                    //$order = $this->quoteManagement->submit($quote);
                     $order->setEmailSent(1);
 
                     if ($order) {
-                        $this->dataHelper->saveTransactionHistory($transactionId,$order->getQuoteId(),$order->getId(),$transactionStatus); //save in transaction table
+                        $this->dataHelper->saveTransactionHistory($transactionId,$order->getQuoteId(),$order->getId(),$transactionStatus,$checkout_id); //save in transaction table
                         $this->checkoutSession->setLastQuoteId($order->getQuoteId());
                         $this->checkoutSession->setLastSuccessQuoteId($order->getQuoteId());
                         $this->checkoutSession->setLastOrderId($order->getId());
@@ -109,7 +115,11 @@ class Success extends \Ksolves\Bankpay\Controller\BaseController
                         }
                         $this->_logger->info('success-> Order created successfully ***');
                         $this->_logger->info($order->getId());
-                        $this->_redirect('checkout/onepage/success');
+                        $updateParams = [
+                            "merchant_order_id" => $order->getId()
+                        ];
+                        $this->dataHelper->updateCurl("PUT",$updateParams,$transactionId);
+                        $this->_redirect('checkout/onepage/success?fam_checkout_id='.$checkout_id.'&');
                     }
                 }else{
                     $this->_logger->info('success-> Quote Id not found ***');
@@ -130,7 +140,7 @@ class Success extends \Ksolves\Bankpay\Controller\BaseController
                 $this->checkoutSession->setLastOrderId($orderData['order_id']);
                 $this->checkoutSession->setLastRealOrderId($this->dataHelper->getOrderIncrementId($orderData['order_id']));
                 $this->checkoutSession->setLastOrderStatus($this->dataHelper->getOrderStatus($orderData['order_id']));
-                $this->_redirect('checkout/onepage/success');
+                $this->_redirect('checkout/onepage/success?fam_checkout_id='.$checkout_id.'&');
             }
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage($e->getMessage());

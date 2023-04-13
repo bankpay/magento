@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Controller\Adminhtml\Payment;
+namespace Ksolves\Fam\Controller\Adminhtml\Payment;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Config\ScopeConfigInterface;
@@ -25,12 +25,12 @@ class Cancel extends \Magento\Backend\App\Action
     protected $backendQuoteSession;
 
     /**
-     * @var \Ksolves\Bankpay\Helper\Data
+     * @var \Ksolves\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ksolves\Bankpay\Logger\Logger
+     * @var \Ksolves\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -39,14 +39,14 @@ class Cancel extends \Magento\Backend\App\Action
      *
      * @param Context $context
      * @param \Magento\Backend\Model\Session\Quote $backendQuoteSession
-     * @param \Ksolves\Bankpay\Helper\Data $dataHelper
-     * @param \Ksolves\Bankpay\Logger\Logger $logger
+     * @param \Ksolves\Fam\Helper\Data $dataHelper
+     * @param \Ksolves\Fam\Logger\Logger $logger
      */
     public function __construct(
         Context $context,
         \Magento\Backend\Model\Session\Quote $backendQuoteSession,
-        \Ksolves\Bankpay\Helper\Data $dataHelper,
-        \Ksolves\Bankpay\Logger\Logger $logger
+        \Ksolves\Fam\Helper\Data $dataHelper,
+        \Ksolves\Fam\Logger\Logger $logger
     ) {
         parent::__construct($context);
         $this->backendQuoteSession = $backendQuoteSession; 

@@ -4,7 +4,7 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
@@ -13,11 +13,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="product.info.addtocart">
-            <block class="Ksolves\Bankpay\Block\OnsiteMessage" name="product.info.bankpay_payments_message" template="Ksolves_Bankpay::product/product_button.phtml" before="-" />
+            <block class="Ksolves\Fam\Block\OnsiteMessage" name="product.info.fam_payments_message" template="Ksolves_Fam::product/product_button.phtml" before="-" />
         </referenceBlock>
 
         <referenceBlock name="product.info.addtocart.additional">
-            <block name="product.info.addtocart.bankpay_payments_message.additional" class="Ksolves\Bankpay\Block\OnsiteMessage" template="Ksolves_Bankpay::product/product_button.phtml" before="-" />
+            <block name="product.info.addtocart.fam_payments_message.additional" class="Ksolves\Fam\Block\OnsiteMessage" template="Ksolves_Fam::product/product_button.phtml" before="-" />
         </referenceBlock>
     </body>
 </page>

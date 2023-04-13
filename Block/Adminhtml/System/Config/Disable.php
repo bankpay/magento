@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Block\Adminhtml\System\Config;
+namespace Ksolves\Fam\Block\Adminhtml\System\Config;
 
 use Magento\Framework\Data\Form\Element\AbstractElement;
 
@@ -20,18 +20,18 @@ class Disable extends \Magento\Config\Block\System\Config\Form\Field
 {
         
     /**
-     * @var \Ksolves\Bankpay\Model\Config
+     * @var \Ksolves\Fam\Model\Config
      */
     protected $config;
 
     /**
      * @param \Magento\Backend\Block\Template\Context $ksContext
-     * @param \Ksolves\Bankpay\Model\Config $config
+     * @param \Ksolves\Fam\Model\Config $config
      * @param array $data
     */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
-        \Ksolves\Bankpay\Model\Config $config,
+        \Ksolves\Fam\Model\Config $config,
         array $data = []
     ) {
         $this->config = $config;

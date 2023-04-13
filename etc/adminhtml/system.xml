@@ -4,7 +4,7 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
@@ -13,24 +13,24 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
   <system>
     <section id="payment">
-      <group id="bankpay" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
-        <label>Bankpay</label>
-        <comment>Accept online payments using Bankpay, the platform of choice of forward-thinking businesses around the world.</comment>
+      <group id="fam" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Fam</label>
+        <comment>Accept online payments using Fam, the platform of choice of forward-thinking businesses around the world.</comment>
         <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Enabled</label>
-            <frontend_model>Ksolves\Bankpay\Block\Adminhtml\System\Config\MerchantVerification</frontend_model>
-            <config_path>payment/bankpay/active</config_path>
+            <frontend_model>Ksolves\Fam\Block\Adminhtml\System\Config\MerchantVerification</frontend_model>
+            <config_path>payment/fam/active</config_path>
         </field> 
         <field id="mode" translate="label comment" sortOrder="20" type="select" showInDefault="1">
-            <label>Mode</label>
-            <source_model>Ksolves\Bankpay\Model\Source\Config\Mode</source_model>
+            <label>Environment</label>
+            <source_model>Ksolves\Fam\Model\Source\Config\Mode</source_model>
             <depends>
                 <field id="active">1</field>
             </depends>
         </field>
         <field id="merchant_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Merchant Name</label>
-            <config_path>payment/bankpay/merchant_name</config_path>
+            <config_path>payment/fam/merchant_name</config_path>
             <depends>
                 <field id="active">1</field>
             </depends>
@@ -39,7 +39,7 @@
             <label>Merchant ID</label>
             <validate>required-entry</validate>
             <comment>**Required (Enter Merchant ID for testing)**</comment>
-            <config_path>payment/bankpay/key_id</config_path>
+            <config_path>payment/fam/key_id</config_path>
             <depends>
                 <field id="active">1</field>
             </depends>
@@ -48,7 +48,7 @@
             <label>Merchant API Key</label>
             <validate>required-entry</validate>
             <comment>**Required (Enter Merchant API Key for testing)**</comment>
-            <config_path>payment/bankpay/key_secret</config_path>
+            <config_path>payment/fam/key_secret</config_path>
             <depends>
                 <field id="active">1</field>
             </depends>
@@ -59,17 +59,16 @@
                 <field id="active">1</field>
             </depends>
         </field>
-        <field id="theme" translate="label comment" sortOrder="80" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>Theme</label>
-            <source_model>Ksolves\Bankpay\Model\Source\Config\ThemeOptions</source_model>
+        <field id="checkout_method_theme" translate="label comment" sortOrder="80" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Checkout Method Theme</label>
+            <source_model>Ksolves\Fam\Model\Source\Config\ThemeOptions</source_model>
             <depends>
                 <field id="active">1</field>
             </depends>
         </field>
-        <field id="logo_theme" translate="label comment" sortOrder="90" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>Logo Colour</label>
-            <source_model>Ksolves\Bankpay\Model\Source\Config\LogoTheme</source_model>
-            <config_path>payment/bankpay/logo_theme</config_path>
+        <field id="theme" translate="label comment" sortOrder="80" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Checkout Button Theme</label>
+            <source_model>Ksolves\Fam\Model\Source\Config\ThemeOptions</source_model>
             <depends>
                 <field id="active">1</field>
             </depends>
@@ -77,26 +76,26 @@
         <field id="website_list" translate="label comment" sortOrder="100" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
             <label>Assosciated Website</label>
             <validate>required-entry</validate>
-            <source_model>Ksolves\Bankpay\Block\Adminhtml\System\Config\WebsiteList</source_model>
-            <frontend_model>Ksolves\Bankpay\Block\Adminhtml\System\Config\Disable</frontend_model>
+            <source_model>Ksolves\Fam\Block\Adminhtml\System\Config\WebsiteList</source_model>
+            <frontend_model>Ksolves\Fam\Block\Adminhtml\System\Config\Disable</frontend_model>
             <depends>
                 <field id="onsite_message_enable">1</field>
             </depends>
         </field>
-        <group id="bankpay_onsite_message" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+        <group id="fam_onsite_message" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Onsite messaging</label>  
             <!-- <field id="onsite_message_enable" translate="label" type="select" sortOrder="85" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>Enable On-Site Messaging</label>
                 <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                <config_path>payment/bankpay/onsite_message_enable</config_path>
+                <config_path>payment/fam/onsite_message_enable</config_path>
                 <depends>
                     <field id="active">1</field>
                 </depends>
             </field> 
             <field id="onsite_message_option" translate="label comment" sortOrder="95" type="multiselect" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>Onsite Message Pages</label>
-                <source_model>Ksolves\Bankpay\Model\Source\Config\MessageOptions</source_model>
-                <config_path>payment/bankpay/onsite_message_option</config_path>
+                <source_model>Ksolves\Fam\Model\Source\Config\MessageOptions</source_model>
+                <config_path>payment/fam/onsite_message_option</config_path>
                 <depends>
                     <field id="onsite_message_enable">1</field>
                 </depends>
@@ -108,14 +107,14 @@
             </field> 
             <field id="product_detail_page_theme" translate="label comment" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Theme</label>
-                <source_model>Ksolves\Bankpay\Model\Source\Config\ThemeOptions</source_model>
+                <source_model>Ksolves\Fam\Model\Source\Config\ThemeOptions</source_model>
                 <depends>
                     <field id="onsite_message_enable_product_detail_page">1</field>
                 </depends>
             </field>
             <field id="product_detail_page_logo_theme" translate="label comment" sortOrder="15" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Logo Colour</label>
-                <source_model>Ksolves\Bankpay\Model\Source\Config\LogoTheme</source_model>
+                <label>Border Style</label>
+                <source_model>Ksolves\Fam\Model\Source\Config\BorderStyle</source_model>
                 <depends>
                     <field id="onsite_message_enable_product_detail_page">1</field>
                 </depends>
@@ -127,14 +126,14 @@
             </field> 
             <field id="mini_cart_popup_theme" translate="label comment" sortOrder="25" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Theme</label>
-                <source_model>Ksolves\Bankpay\Model\Source\Config\ThemeOptions</source_model>
+                <source_model>Ksolves\Fam\Model\Source\Config\ThemeOptions</source_model>
                 <depends>
                     <field id="onsite_message_enable_mini_cart_popup">1</field>
                 </depends>
             </field>
             <field id="mini_cart_popup_logo_theme" translate="label comment" sortOrder="30" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Logo Colour</label>
-                <source_model>Ksolves\Bankpay\Model\Source\Config\LogoTheme</source_model>
+                <label>Border Style</label>
+                <source_model>Ksolves\Fam\Model\Source\Config\BorderStyle</source_model>
                 <depends>
                     <field id="onsite_message_enable_mini_cart_popup">1</field>
                 </depends>
@@ -146,14 +145,14 @@
             </field> 
             <field id="cart_page_theme" translate="label comment" sortOrder="40" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Theme</label>
-                <source_model>Ksolves\Bankpay\Model\Source\Config\ThemeOptions</source_model>
+                <source_model>Ksolves\Fam\Model\Source\Config\ThemeOptions</source_model>
                 <depends>
                     <field id="onsite_message_enable_cart_page">1</field>
                 </depends>
             </field>
             <field id="cart_page_logo_theme" translate="label comment" sortOrder="45" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Logo Colour</label>
-                <source_model>Ksolves\Bankpay\Model\Source\Config\LogoTheme</source_model>
+                <label>Border Style</label>
+                <source_model>Ksolves\Fam\Model\Source\Config\BorderStyle</source_model>
                 <depends>
                     <field id="onsite_message_enable_cart_page">1</field>
                 </depends>
@@ -165,14 +164,14 @@
             </field> 
             <field id="checkout_theme" translate="label comment" sortOrder="80" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Theme</label>
-                <source_model>Ksolves\Bankpay\Model\Source\Config\ThemeOptions</source_model>
+                <source_model>Ksolves\Fam\Model\Source\Config\ThemeOptions</source_model>
                 <depends>
                     <field id="onsite_message_enable_checkout">1</field>
                 </depends>
             </field>
             <field id="checkout_logo_theme" translate="label comment" sortOrder="55" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Logo Colour</label>
-                <source_model>Ksolves\Bankpay\Model\Source\Config\LogoTheme</source_model>
+                <label>Border Style</label>
+                <source_model>Ksolves\Fam\Model\Source\Config\BorderStyle</source_model>
                 <depends>
                     <field id="onsite_message_enable_checkout">1</field>
                 </depends>

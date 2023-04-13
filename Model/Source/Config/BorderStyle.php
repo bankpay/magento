@@ -3,19 +3,19 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
-namespace Ksolves\Bankpay\Model\Source\Config;
+namespace Ksolves\Fam\Model\Source\Config;
 
 use Magento\Framework\Data\OptionSourceInterface;
 
 /**
- * Class LogoTheme
+ * Class BorderStyle
  */
-class LogoTheme implements OptionSourceInterface
+class BorderStyle implements OptionSourceInterface
 {
     /**
      * Get options
@@ -26,16 +26,20 @@ class LogoTheme implements OptionSourceInterface
     {
         return [
             [
-                'value'=>'black',
-                'label'=>'Black'
+                'value'=>'default',
+                'label'=>'Default'
             ],
             [
-                'value'=>'white',
-                'label'=>'White'
+                'value'=>'square',
+                'label'=>'Square'
             ],
             [
-                'value'=>'yellow',
-                'label'=>'Yellow'
+                'value'=>'pill',
+                'label'=>'Pill'
+            ],
+            [
+                'value'=>'none',
+                'label'=>'None'
             ]
         ];
     }

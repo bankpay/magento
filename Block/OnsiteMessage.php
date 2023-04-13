@@ -4,13 +4,13 @@
  * Ksolves
  *
  * @category    Ksolves
- * @package     Ksolves_Bankpay
+ * @package     Ksolves_Fam
  * @author      Ksolves Team
  * @copyright   Copyright (c) Ksolves India Ltd.(https://www.ksolves.com/)
  * @license     https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Block;
+namespace Ksolves\Fam\Block;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\Registry;
@@ -22,7 +22,7 @@ class OnsiteMessage extends Template
 {
   
     /**
-     * @var \Ksolves\Bankpay\Model\Config
+     * @var \Ksolves\Fam\Model\Config
      */
     protected $config;
 
@@ -51,7 +51,7 @@ class OnsiteMessage extends Template
      * OnsiteMessage constructor.
      *
      * @param Template\Context $context
-     * @param \Ksolves\Bankpay\Model\Config $config
+     * @param \Ksolves\Fam\Model\Config $config
      * @param Registry $registry
      * @param \Magento\Checkout\Helper\Data $checkoutHelper
      * @param \Magento\Checkout\Model\Session $checkoutSession
@@ -60,7 +60,7 @@ class OnsiteMessage extends Template
      */
     public function __construct(
         Template\Context $context,
-        \Ksolves\Bankpay\Model\Config $config,
+        \Ksolves\Fam\Model\Config $config,
         Registry $registry,
         \Magento\Checkout\Helper\Data $checkoutHelper,
         \Magento\Checkout\Model\Session $checkoutSession,
@@ -167,8 +167,8 @@ class OnsiteMessage extends Template
      */
     public function getQuoteTotal()
     {
-        if(!is_null($this->getQuote()->getSubtotal())){
-            $quoteTotal = (int) number_format($this->getQuote()->getSubtotal(), 2, ".", "");
+        if(!is_null($this->getQuote()->getGrandTotal())){
+            $quoteTotal = number_format($this->getQuote()->getGrandTotal(), 2, ".", "");
         } else {
             $quoteTotal = 0;
         }
@@ -181,9 +181,21 @@ class OnsiteMessage extends Template
     */
     public function getPriceById()
     {
-        $productId = $this->registry->registry('product')->getId(); //Product ID
-        $product = $this->productFactory->create();
-        $productPriceById = $product->load($productId)->getPrice();
-        return (int) number_format($productPriceById, 2, ".", "");
+        $currentProduct = $this->registry->registry('product');
+        $finalprice = 0 ;
+
+        if ($currentProduct->getTypeId() == "simple") {
+            $finalprice = $currentProduct->getFinalPrice();
+        } elseif ($currentProduct->getTypeId() == "configurable") {
+            $_children = $currentProduct->getTypeInstance()->getUsedProducts($currentProduct);
+            foreach ($_children as $child) {
+                $finalprice = $child->getFinalPrice();
+                break;
+            }
+        } elseif ($currentProduct->getTypeId() == "bundle" || $currentProduct->getTypeId() == "grouped") {
+            $finalprice = $currentProduct->getPriceInfo()->getPrice('final_price')->getMinimalPrice()->getValue();
+        }
+
+        return number_format($finalprice, 2, ".", "");
     }
 }

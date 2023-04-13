@@ -3,21 +3,21 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Helper;
+namespace Ksolves\Fam\Helper;
 
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\Helper\AbstractHelper;
 
 /**
- * BankpayHelper Class
+ * FamHelper Class
  */
-class BankpayHelper extends AbstractHelper
+class FamHelper extends AbstractHelper
 {
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface

@@ -4,7 +4,7 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
@@ -13,21 +13,22 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <payment>
-            <bankpay>
-                <model>Ksolves\Bankpay\Model\PaymentMethod</model>
+            <fam>
+                <model>Ksolves\Fam\Model\PaymentMethod</model>
                 <active>0</active>
                 <mode>sandbox</mode>
                 <merchant_name>Magento</merchant_name>
                 <key_id>sel_4yoav3wt2ku9s</key_id>
                 <key_secret>29eba064-cb2c-4e5f-864d-ca15ec9bc52b</key_secret>
-                <title>Bankpay</title>
+                <title>Fam</title>
                 <theme>light</theme>
+                <checkout_method_theme>light</checkout_method_theme>
                 <onsite_message_enable>1</onsite_message_enable>
                 <logo_theme>white</logo_theme>
                 <onsite_message_option>product_detail_page,mini_cart_popup,cart_page</onsite_message_option>
                 <can_use_internal>1</can_use_internal>
                 <group>offline</group>
-            </bankpay>
+            </fam>
         </payment>
     </default>
 </config>

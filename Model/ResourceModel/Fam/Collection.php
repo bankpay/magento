@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Model\ResourceModel\Bankpay;
+namespace Ksolves\Fam\Model\ResourceModel\Fam;
 
 /**
 * Class Collection
@@ -26,8 +26,8 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     protected function _construct()
     {
         $this->_init(
-            'Ksolves\Bankpay\Model\Bankpay',
-            'Ksolves\Bankpay\Model\ResourceModel\Bankpay'
+            'Ksolves\Fam\Model\Fam',
+            'Ksolves\Fam\Model\ResourceModel\Fam'
         );
     }
 }

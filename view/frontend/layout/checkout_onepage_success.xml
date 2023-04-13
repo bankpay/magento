@@ -12,11 +12,11 @@
  -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="header.container">
-            <block class="Ksolves\Fam\Block\OnsiteMessage" name="osm" after="-" template="Ksolves_Fam::default.phtml"/>
+        <referenceBlock name="content">
+            <block name="bankpay-success" class="Ksolves\Fam\Block\OnsiteMessage" template="Ksolves_Fam::onepage/success.phtml" cacheable="false"/>
         </referenceBlock>
-        <!-- <referenceContainer name="minicart.addons">
-           <block class="Ksolves\Fam\Block\OnsiteMessage" name="minicart_message" template="Ksolves_Fam::cart/minicart_message.phtml"></block>
-        </referenceContainer> -->
-    </body> 
+    </body>
 </page>
+
+
+ 

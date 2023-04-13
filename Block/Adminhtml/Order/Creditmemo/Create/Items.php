@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Block\Adminhtml\Order\Creditmemo\Create;
+namespace Ksolves\Fam\Block\Adminhtml\Order\Creditmemo\Create;
 
 /**
  * Adminhtml credit memo items grid
@@ -34,16 +34,16 @@ class Items extends \Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Items
         );
         
         $paymentMethodName = $this->getCreditmemo()->getOrder()->getPayment()->getMethod();
-        $bankpayOnclick = 'setLocation(\'' . $this->getBankpayUrl() . '\')';
+        $famOnclick = 'setLocation(\'' . $this->getFamUrl() . '\')';
 
-        if ($paymentMethodName == 'bankpay') {
+        if ($paymentMethodName == 'fam') {
             $this->addChild(
                 'submit_button',
                 \Magento\Backend\Block\Widget\Button::class,
                 [
-                    'label' => __('Bankpay Refund'),
+                    'label' => __('Fam Refund'),
                     'class' => 'save submit-button refund primary',
-                    'onclick' => $bankpayOnclick
+                    'onclick' => $famOnclick
                 ]
             );
         }elseif ($this->getCreditmemo()->canRefund()) {
@@ -81,14 +81,14 @@ class Items extends \Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Items
     }
 
     /**
-     * Get bankpay url
+     * Get fam url
      *
      * @return string
      */
-    public function getBankpayUrl()
+    public function getFamUrl()
     {
         return $this->getUrl(
-            'bankpay/payment/refund',
+            'fam/payment/refund',
             [
                 'order_id' => $this->getCreditmemo()->getOrderId()
             ]

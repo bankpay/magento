@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Controller\Payment;
+namespace Ksolves\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\App\CsrfAwareActionInterface;
@@ -22,12 +22,12 @@ use Magento\Framework\App\Request\InvalidRequestException;
 class Webhook extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
 {
     /**
-     * @var \Ksolves\Bankpay\Helper\Data
+     * @var \Ksolves\Fam\Helper\Data
     */
     protected $_dataHelper;
 
     /**
-     * @var \Ksolves\Bankpay\Logger\Logger
+     * @var \Ksolves\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -37,30 +37,31 @@ class Webhook extends \Magento\Framework\App\Action\Action implements CsrfAwareA
     protected $jsonHelper;
 
      /**
-     * @var \Ksolves\Bankpay\Model\Config
+     * @var \Ksolves\Fam\Model\Config
      */
     protected $config;
 
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
-     * @param \Ksolves\Bankpay\Helper\Data $dataHelper
+     * @param \Ksolves\Fam\Helper\Data $dataHelper
      * @param \Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface
      * @param \Magento\Quote\Api\CartManagementInterface $cartManagementInterface
      * @param \Magento\Sales\Model\Order $order
-     * @param \Ksolves\Bankpay\Logger\Logger $logger
+     * @param \Ksolves\Fam\Logger\Logger $logger
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
-     * @param \Ksolves\Bankpay\Model\Config $config
+     * @param \Ksolves\Fam\Model\Config $config
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
-        \Ksolves\Bankpay\Helper\Data $dataHelper,
+        \Ksolves\Fam\Helper\Data $dataHelper,
         \Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface,
         \Magento\Quote\Api\CartManagementInterface $cartManagementInterface,
         \Magento\Sales\Model\Order $order,
-        \Ksolves\Bankpay\Logger\Logger $logger,
+        \Ksolves\Fam\Logger\Logger $logger,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
-        \Ksolves\Bankpay\Model\Config $config
+        \Ksolves\Fam\Model\Config $config,
+        \Magento\Quote\Model\QuoteManagementFactory $quoteManagement
     ) {
         parent::__construct($context);
         $this->_dataHelper = $dataHelper;
@@ -70,6 +71,7 @@ class Webhook extends \Magento\Framework\App\Action\Action implements CsrfAwareA
         $this->_logger = $logger;
         $this->jsonHelper = $jsonHelper;
         $this->config = $config;
+        $this->quoteManagement = $quoteManagement->create();
     }
     
     /**
@@ -97,34 +99,38 @@ class Webhook extends \Magento\Framework\App\Action\Action implements CsrfAwareA
     {
         try {
             $this->_logger->info('Webhook start ---');
-            $response = $this->getRequest()->getContent(); // get the data from bankpay side
+            $response = $this->getRequest()->getContent(); // get the data from fam side
             $json_decode = $this->jsonHelper->unserialize($response);
             $this->_logger->info(print_r($json_decode,true));
 
-            $signature = $this->getRequest()->getHeader('Bankpay-Signature');
+            $signature = $this->getRequest()->getHeader('Webhook-Signature');
             $this->_logger->info(print_r($signature,true));
+            $this->_logger->info(print_r($this->config->getSecretKey(),true));
 
             if ($signature == $this->config->getSecretKey()) {
-                if ($json_decode['event_type'] == "TRANSACTION_CREATED") {
+                if ($json_decode['event_type'] == "ORDER_CREATED") {
                     return;
                 }
                 if (!empty($json_decode)) {
-                    $transactionId = $json_decode['txn_id'];
+                    $checkoutId = $json_decode['checkout_id'];
+                    $transactionId = $json_decode['order_id'];
                     $transactionStatus = $json_decode['status'];
                 }else{
                     $transactionId = null;
                     $transactionStatus = 'Pending';
                 }
-                $orderData = $this->_dataHelper->getOrderData($transactionId); //get orderdata from bankpay_transaction table
+                $orderData = $this->_dataHelper->getOrderData($checkoutId); //get orderdata from fam_transaction table
 
+                $this->_logger->info(print_r($orderData,true));
                 // Check order is created or not
                 if (!empty($orderData)) {
                     $this->_logger->info('Webhook-> Order data found ---');
                     $this->_logger->info(print_r($orderData,true));
+                    $this->_logger->info(print_r($checkoutId,true));
                     // update the transaction table
-                    $tableId = $this->_dataHelper->getRowId($transactionId);
+                    $tableId = $this->_dataHelper->getRowId($checkoutId);
                     if ($tableId) {
-                        $this->_logger->info('Webhook-> Transaction tabel updated ---');
+                        $this->_logger->info('Webhook-> Transaction table updated ---');
                         $this->_dataHelper->updateTransactionData($tableId,$transactionStatus);
                         if($transactionStatus == 'COMPLETED'){
                             $this->_dataHelper->createInvoice($orderData['order_id']); // create invoice here                                
@@ -137,17 +143,17 @@ class Webhook extends \Magento\Framework\App\Action\Action implements CsrfAwareA
                     $this->_logger->info('Webhook-> Order data not found ---');
                     $this->_logger->info(print_r($orderData,true));
                     //order create here using quoteId
-                    $quoteId = $this->_dataHelper->getQuoteId($transactionId);
+                    $quoteId = $this->_dataHelper->getQuoteId($checkoutId);
                     if ($quoteId) {
                         $this->_logger->info('Webhook-> Order creation process start ---');
                         $this->_logger->info($quoteId);
                         // Create Order From Quote
                         $quote = $this->cartRepositoryInterface->get($quoteId);
-                        $orderId = $this->cartManagementInterface->placeOrder($quote->getId());
+                        $orderId =$this->cartManagementInterface->placeOrder($quote->getId());
                         $order = $this->order->load($orderId);
                         $order->setEmailSent(1);
                         if ($order) {
-                            $this->_dataHelper->saveTransactionHistory($transactionId,$order->getQuoteId(),$order->getId(),$transactionStatus); //save in transaction table
+                            $this->_dataHelper->saveTransactionHistory($transactionId,$order->getQuoteId(),$order->getId(),$transactionStatus,$checkoutId); //save in transaction table
                             $this->_logger->info('Webhook-> Order created successfully ---');
                             $this->_logger->info($order->getId());
                             if($transactionStatus == 'COMPLETED'){
@@ -159,7 +165,7 @@ class Webhook extends \Magento\Framework\App\Action\Action implements CsrfAwareA
                     }
                 }
             }else{
-                $this->_logger->info('Webhook-> Bankpay-Signature did not match');
+                $this->_logger->info('Webhook-> Fam-Signature did not match');
             }    
         } catch (\Exception $e) {
             $this->_logger->info('Webhook-> Catch section ---');

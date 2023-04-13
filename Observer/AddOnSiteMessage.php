@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Observer;
+namespace Ksolves\Fam\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
@@ -30,7 +30,7 @@ class AddOnSiteMessage implements ObserverInterface
 
         /** @var \Magento\Framework\View\Element\Template $shortcutMessage */
         $shortcutMessage = $shortcutButtons->getLayout()->createBlock(
-            \Ksolves\Bankpay\Block\MinicartPopup\Messages::class,
+            \Ksolves\Fam\Block\MinicartPopup\Messages::class,
             '',
             []
         );

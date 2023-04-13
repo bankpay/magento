@@ -3,15 +3,15 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Block\MinicartPopup;
+namespace Ksolves\Fam\Block\MinicartPopup;
 
-use Ksolves\Bankpay\Block\OnsiteMessage as OnsiteMessage;
+use Ksolves\Fam\Block\OnsiteMessage as OnsiteMessage;
 use Magento\Catalog\Block\ShortcutInterface;
 
 /**
@@ -26,7 +26,7 @@ class Messages extends OnsiteMessage implements ShortcutInterface
      *
      * @var string
      */
-    //protected $_template = 'Ksolves_Bankpay::cart/minicart_message.phtml';
+    //protected $_template = 'Ksolves_Fam::cart/minicart_message.phtml';
 
     /**
      * @var bool
@@ -63,10 +63,10 @@ class Messages extends OnsiteMessage implements ShortcutInterface
         $this->isShoppingCart = $isShoppingCart;
 
         if ($isShoppingCart){
-            $this->_template = 'Ksolves_Bankpay::cart/cart_message.phtml';
+            $this->_template = 'Ksolves_Fam::cart/cart_message.phtml';
         }
         else
-            $this->_template = 'Ksolves_Bankpay::cart/minicart_message.phtml';
+            $this->_template = 'Ksolves_Fam::cart/minicart_message.phtml';
     }
 
     /**

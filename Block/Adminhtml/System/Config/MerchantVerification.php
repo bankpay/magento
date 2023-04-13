@@ -3,13 +3,13 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
  */
 
-namespace Ksolves\Bankpay\Block\Adminhtml\System\Config;
+namespace Ksolves\Fam\Block\Adminhtml\System\Config;
 
 use Magento\Backend\Block\Template\Context;
 
@@ -22,27 +22,27 @@ class MerchantVerification extends \Magento\Config\Block\System\Config\Form\Fiel
      * Template path
      * @var string
      */
-    protected $_template = 'Ksolves_Bankpay::system/config/toggle_button.phtml';
+    protected $_template = 'Ksolves_Fam::system/config/toggle_button.phtml';
 
-    protected $_configPath = 'payment/bankpay/active';
+    protected $_configPath = 'payment/fam/active';
 
-    protected $_groupName = 'bankpay';
+    protected $_groupName = 'fam';
 
     protected $_fieldName = 'active';
 
     /**
-     * @var \Ksolves\Bankpay\Model\Config
+     * @var \Ksolves\Fam\Model\Config
     */
     protected $config;
 
     /**
      * @param Context $context
-     * @param \Ksolves\Bankpay\Model\Config $config
+     * @param \Ksolves\Fam\Model\Config $config
      * @param array $data
      */
     public function __construct(
         Context $context,
-        \Ksolves\Bankpay\Model\Config $config,
+        \Ksolves\Fam\Model\Config $config,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -91,7 +91,7 @@ class MerchantVerification extends \Magento\Config\Block\System\Config\Form\Fiel
      */
     public function getAjaxUrl()
     {
-        return $this->getUrl('bankpay/system_config/configureWebhook');
+        return $this->getUrl('fam/system_config/configureWebhook');
     }
 
     /**

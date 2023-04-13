@@ -4,7 +4,7 @@
  * Ksolves
  *
  * @category  Ksolves
- * @package   Ksolves_Bankpay
+ * @package   Ksolves_Fam
  * @author    Ksolves Team
  * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
  * @license   https://store.ksolves.com/magento-license
@@ -13,8 +13,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="order_additional_info">
-            <block class="Ksolves\Bankpay\Block\Adminhtml\Order\View\BankpayPaymentInfo" name="bankpay_information" 
-                template="order/view/bankpayinfo.phtml"/>
+            <block class="Ksolves\Fam\Block\Adminhtml\Order\View\FamPaymentInfo" name="fam_information" 
+                template="order/view/faminfo.phtml"/>
         </referenceBlock>
     </body>
 </page>
