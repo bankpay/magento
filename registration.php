@@ -1,16 +1,16 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Ksolves_Fam',
+    'Ftl_Fam',
     __DIR__
 );

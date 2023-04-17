@@ -1,22 +1,22 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Controller\Payment;
+namespace Ftl\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 
 /**
  * Success Class
  */
-class Success extends \Ksolves\Fam\Controller\BaseController
+class Success extends \Ftl\Fam\Controller\BaseController
 {
     /**
      * @var \Magento\Quote\Model\Quote
@@ -29,32 +29,32 @@ class Success extends \Ksolves\Fam\Controller\BaseController
     protected $checkoutSession;
 
     /**
-     * @var \Ksolves\Fam\Helper\Data
+     * @var \Ftl\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ksolves\Fam\Logger\Logger
+     * @var \Ftl\Fam\Logger\Logger
     */
     protected $_logger;
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
      * @param \Magento\Checkout\Model\Session $checkoutSession
-     * @param \Ksolves\Fam\Helper\Data $dataHelper
+     * @param \Ftl\Fam\Helper\Data $dataHelper
      * @param Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface
      * @param Magento\Quote\Api\CartManagementInterface $cartManagementInterface
      * @param Magento\Sales\Model\Order $order
-     * @param \Ksolves\Fam\Logger\Logger $logger
+     * @param \Ftl\Fam\Logger\Logger $logger
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Ksolves\Fam\Helper\Data $dataHelper,
+        \Ftl\Fam\Helper\Data $dataHelper,
         \Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface,
         \Magento\Quote\Api\CartManagementInterface $cartManagementInterface,
         \Magento\Sales\Model\Order $order,
-        \Ksolves\Fam\Logger\Logger $logger,
+        \Ftl\Fam\Logger\Logger $logger,
         \Magento\Quote\Model\QuoteManagement $quoteManagement
     ) {
         parent::__construct($context,$checkoutSession);

@@ -1,15 +1,15 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Controller\Payment;
+namespace Ftl\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 
@@ -19,24 +19,24 @@ use Magento\Framework\Controller\ResultFactory;
 class Cancel extends \Magento\Framework\App\Action\Action
 {
     /**
-     * @var \Ksolves\Fam\Helper\Data
+     * @var \Ftl\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ksolves\Fam\Logger\Logger
+     * @var \Ftl\Fam\Logger\Logger
     */
     protected $_logger;
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
-     * @param \Ksolves\Fam\Helper\Data $dataHelper
-     * @param \Ksolves\Fam\Logger\Logger $logger
+     * @param \Ftl\Fam\Helper\Data $dataHelper
+     * @param \Ftl\Fam\Logger\Logger $logger
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
-        \Ksolves\Fam\Helper\Data $dataHelper,
-        \Ksolves\Fam\Logger\Logger $logger
+        \Ftl\Fam\Helper\Data $dataHelper,
+        \Ftl\Fam\Logger\Logger $logger
     ) {
         parent::__construct($context);
         $this->dataHelper = $dataHelper;

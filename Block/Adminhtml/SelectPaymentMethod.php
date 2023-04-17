@@ -1,15 +1,15 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Block\Adminhtml;
+namespace Ftl\Fam\Block\Adminhtml;
 
 use Magento\Framework\Phrase;
 use Magento\Quote\Model\Quote;
@@ -26,17 +26,17 @@ class SelectPaymentMethod extends \Magento\Backend\Block\Widget\Form\Generic
     private $adminCheckoutSession;
 
     /**
-     * @var \Ksolves\Fam\Model\Config
+     * @var \Ftl\Fam\Model\Config
     */
     protected $config;
     
     /**
      * @param AdminCheckoutSession $adminCheckoutSession
-     * @param \Ksolves\Fam\Model\Config $config
+     * @param \Ftl\Fam\Model\Config $config
     */
     public function __construct(
         AdminCheckoutSession $adminCheckoutSession,
-        \Ksolves\Fam\Model\Config $config
+        \Ftl\Fam\Model\Config $config
     ) {
         $this->adminCheckoutSession = $adminCheckoutSession;
         $this->config = $config;

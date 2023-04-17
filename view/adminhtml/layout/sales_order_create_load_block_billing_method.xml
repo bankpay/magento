@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
  -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="order.create.billing.method.form">
             <action method="setMethodFormTemplate">
                 <argument name="method" xsi:type="string">fam</argument>
-                <argument name="template" xsi:type="string">Ksolves_Fam::form/fam_iframe.phtml</argument>
+                <argument name="template" xsi:type="string">Ftl_Fam::form/fam_iframe.phtml</argument>
             </action>
         </referenceBlock>
     </body>

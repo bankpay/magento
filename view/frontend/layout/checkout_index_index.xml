@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
  -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
@@ -29,7 +29,7 @@
                                                             <!-- merge payment method renders here -->
                                                             <item name="children" xsi:type="array">
                                                                 <item name="fam" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Ksolves_Fam/js/view/payment/fam-payments</item>
+                                                                    <item name="component" xsi:type="string">Ftl_Fam/js/view/payment/fam-payments</item>
                                                                     <item name="methods" xsi:type="array">
                                                                         <item name="fam" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
@@ -48,7 +48,7 @@
                                     <item name="children" xsi:type="array">
                                         <item name="summary" xsi:type="array">
                                             <item name="config" xsi:type="array">
-                                                <item name="template" xsi:type="string">Ksolves_Fam/checkout/summary</item>
+                                                <item name="template" xsi:type="string">Ftl_Fam/checkout/summary</item>
                                             </item>
                                         </item>
                                     </item>

@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <event name="shortcut_buttons_container">
-        <observer name="fam_payments_express_messages" instance="Ksolves\Fam\Observer\AddOnSiteMessage"/>
+        <observer name="fam_payments_express_messages" instance="Ftl\Fam\Observer\AddOnSiteMessage"/>
     </event>
     <event name="payment_method_is_active">
-        <observer name="fam_payment" instance="Ksolves\Fam\Observer\PaymentMethodAvailable" />
+        <observer name="fam_payment" instance="Ftl\Fam\Observer\PaymentMethodAvailable" />
     </event>
 </config>

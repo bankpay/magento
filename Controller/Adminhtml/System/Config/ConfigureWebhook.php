@@ -1,15 +1,15 @@
 <?php 
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Controller\Adminhtml\System\Config;
+namespace Ftl\Fam\Controller\Adminhtml\System\Config;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -27,7 +27,7 @@ class ConfigureWebhook extends Action
     protected $resultJsonFactory;
 
     /**
-     * @var \Ksolves\Fam\Helper\Data
+     * @var \Ftl\Fam\Helper\Data
     */
     protected $dataHelper;
 
@@ -37,7 +37,7 @@ class ConfigureWebhook extends Action
     protected $_storeManager;
 
     /**
-     * @var \Ksolves\Fam\Logger\Logger
+     * @var \Ftl\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -54,29 +54,29 @@ class ConfigureWebhook extends Action
     const CURL_WEBHOOK_STATUS = '200';
 
     /**
-     * @var \Ksolves\Fam\Model\Config
+     * @var \Ftl\Fam\Model\Config
     */
     protected $config;
 
     /**
      * @param Context $context
      * @param JsonFactory $resultJsonFactory
-     * @param \Ksolves\Fam\Helper\Data $dataHelper
-     * @param \Ksolves\Fam\Logger\Logger $logger 
+     * @param \Ftl\Fam\Helper\Data $dataHelper
+     * @param \Ftl\Fam\Logger\Logger $logger 
      * @param \Magento\Framework\HTTP\Client\Curl $curl
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
-     * @param \Ksolves\Fam\Model\Config $config
+     * @param \Ftl\Fam\Model\Config $config
      */
     public function __construct(
         Context $context,
         JsonFactory $resultJsonFactory,
-        \Ksolves\Fam\Helper\Data $dataHelper,
+        \Ftl\Fam\Helper\Data $dataHelper,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Ksolves\Fam\Logger\Logger $logger,
+        \Ftl\Fam\Logger\Logger $logger,
         \Magento\Framework\HTTP\Client\Curl $curl,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
-        \Ksolves\Fam\Model\Config $config
+        \Ftl\Fam\Model\Config $config
 
     ) {
         $this->resultJsonFactory = $resultJsonFactory;

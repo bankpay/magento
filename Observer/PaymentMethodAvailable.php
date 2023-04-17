@@ -1,15 +1,15 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Observer;
+namespace Ftl\Fam\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
@@ -20,15 +20,15 @@ use Magento\Framework\Event\Observer;
 class PaymentMethodAvailable implements ObserverInterface
 {
     /**
-     * @var \Ksolves\Fam\Model\Config
+     * @var \Ftl\Fam\Model\Config
      */
     protected $config;
     
     /**
-     * @param  \Ksolves\Fam\Model\Config $config,
+     * @param  \Ftl\Fam\Model\Config $config,
      */
     public function __construct(
-        \Ksolves\Fam\Model\Config $config
+        \Ftl\Fam\Model\Config $config
     ) {
         $this->config = $config;
     }

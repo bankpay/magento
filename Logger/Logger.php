@@ -1,20 +1,20 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Logger;
+namespace Ftl\Fam\Logger;
 
 /**
  * Logger
  *
- * @package Ksolves\Fam\Logger
+ * @package Ftl\Fam\Logger
  */
 class Logger extends \Monolog\Logger
 {

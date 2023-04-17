@@ -1,14 +1,14 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
-namespace Ksolves\Fam\Model;
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
+namespace Ftl\Fam\Model;
 
 /**
 * Class Fam
@@ -18,6 +18,6 @@ class Fam extends \Magento\Framework\Model\AbstractModel
     //constructor
     public function _construct()
     {
-        $this->_init(\Ksolves\Fam\Model\ResourceModel\Fam::class);
+        $this->_init(\Ftl\Fam\Model\ResourceModel\Fam::class);
     }
 }

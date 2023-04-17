@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
  -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="header.container">
-            <block class="Ksolves\Fam\Block\OnsiteMessage" name="osm" after="-" template="Ksolves_Fam::default.phtml"/>
+            <block class="Ftl\Fam\Block\OnsiteMessage" name="osm" after="-" template="Ftl_Fam::default.phtml"/>
         </referenceBlock>
         <!-- <referenceContainer name="minicart.addons">
-           <block class="Ksolves\Fam\Block\OnsiteMessage" name="minicart_message" template="Ksolves_Fam::cart/minicart_message.phtml"></block>
+           <block class="Ftl\Fam\Block\OnsiteMessage" name="minicart_message" template="Ftl_Fam::cart/minicart_message.phtml"></block>
         </referenceContainer> -->
     </body> 
 </page>

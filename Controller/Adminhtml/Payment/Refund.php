@@ -1,15 +1,15 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Controller\Adminhtml\Payment;
+namespace Ftl\Fam\Controller\Adminhtml\Payment;
 
 use Magento\Backend\App\Action\Context;
 
@@ -24,17 +24,17 @@ class Refund extends \Magento\Backend\App\Action
     protected $backendQuoteSession;
 
     /**
-     * @var \Ksolves\Fam\Helper\Data
+     * @var \Ftl\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ksolves\Fam\Logger\Logger
+     * @var \Ftl\Fam\Logger\Logger
     */
     protected $_logger;
 
     /**
-     * @var \Ksolves\Fam\Model\Config
+     * @var \Ftl\Fam\Model\Config
     */
     protected $config;
 
@@ -91,9 +91,9 @@ class Refund extends \Magento\Backend\App\Action
      *
      * @param Context $context
      * @param \Magento\Backend\Model\Session\Quote $backendQuoteSession
-     * @param \Ksolves\Fam\Helper\Data $dataHelper
-     * @param \Ksolves\Fam\Logger\Logger $logger
-     * @param \Ksolves\Fam\Model\Config $config
+     * @param \Ftl\Fam\Helper\Data $dataHelper
+     * @param \Ftl\Fam\Logger\Logger $logger
+     * @param \Ftl\Fam\Model\Config $config
      * @param \Magento\Framework\HTTP\Client\Curl $curl
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
      * @param \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
@@ -107,9 +107,9 @@ class Refund extends \Magento\Backend\App\Action
     public function __construct(
         Context $context,
         \Magento\Backend\Model\Session\Quote $backendQuoteSession,
-        \Ksolves\Fam\Helper\Data $dataHelper,
-        \Ksolves\Fam\Logger\Logger $logger,
-        \Ksolves\Fam\Model\Config $config,
+        \Ftl\Fam\Helper\Data $dataHelper,
+        \Ftl\Fam\Logger\Logger $logger,
+        \Ftl\Fam\Model\Config $config,
         \Magento\Framework\HTTP\Client\Curl $curl,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,

@@ -1,15 +1,15 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category    Ksolves
- * @package     Ksolves_Fam
- * @author      Ksolves Team
- * @copyright   Copyright (c) Ksolves India Ltd.(https://www.ksolves.com/)
- * @license     https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Block\Sales\Order\View;
+namespace Ftl\Fam\Block\Sales\Order\View;
 
 use Magento\Framework\DataObject;
 use Magento\Framework\Registry;
@@ -27,20 +27,20 @@ class FamPaymentInfo extends Template
     protected $registry = null;
 
     /**
-     * @var \Ksolves\Fam\Helper\Data
+     * @var \Ftl\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
      * @param Context $context
      * @param Registry $registry
-     * @param \Ksolves\Fam\Helper\Data $dataHelper
+     * @param \Ftl\Fam\Helper\Data $dataHelper
      * @param array $data
      */
     public function __construct(
         Context $context,
         Registry $registry,
-        \Ksolves\Fam\Helper\Data $dataHelper,
+        \Ftl\Fam\Helper\Data $dataHelper,
         array $data = []
     ) {
         $this->registry = $registry;

@@ -1,15 +1,15 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Helper;
+namespace Ftl\Fam\Helper;
 
 use Magento\Store\Model\ScopeInterface;
 
@@ -45,7 +45,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     protected $quoteFactory;
 
     /**
-     * @var \Ksolves\Fam\Model\Config
+     * @var \Ftl\Fam\Model\Config
     */
     protected $config;
 
@@ -65,7 +65,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     protected $curlClient;
 
     /**
-     * @var \Ksolves\Fam\Logger\Logger
+     * @var \Ftl\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -79,7 +79,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     const CURL_PUT_SUCCESS_STATUS = '200';
 
     /**
-     * @var \Ksolves\Fam\Model\FamFactory
+     * @var \Ftl\Fam\Model\FamFactory
      */
     protected $famFactory;
 
@@ -114,7 +114,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     protected $_order;
 
     /**
-     * @var \Ksolves\Fam\Model\ResourceModel\Fam\CollectionFactory
+     * @var \Ftl\Fam\Model\ResourceModel\Fam\CollectionFactory
     */
     protected $famCollectionFactory;
 
@@ -132,20 +132,20 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @param \Magento\Catalog\Model\ProductCategoryList $productCategoryList
      * @param \Magento\Catalog\Model\CategoryFactory $categoryFactory
      * @param \Magento\Quote\Model\QuoteFactory $quoteFactory
-     * @param \Ksolves\Fam\Model\Config $config
+     * @param \Ftl\Fam\Model\Config $config
      * @param \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
      * @param \Magento\Quote\Model\QuoteRepository $quoteRepository
-     * @param \Ksolves\Fam\Logger\Logger $logger
+     * @param \Ftl\Fam\Logger\Logger $logger
      * @param \Magento\Framework\HTTP\Client\Curl $curl
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
-     * @param \Ksolves\Fam\Model\FamFactory $famFactory
+     * @param \Ftl\Fam\Model\FamFactory $famFactory
      * @param \Magento\Quote\Model\ResourceModel\Quote\CollectionFactory $quoteCollectionFactory
      * @param \Magento\Sales\Api\OrderRepositoryInterface $orderRepository
      * @param \Magento\Sales\Model\Service\InvoiceService $invoiceService
      * @param \Magento\Sales\Model\Order\Email\Sender\InvoiceSender $invoiceSender
      * @param \Magento\Framework\DB\Transaction $transaction
      * @param \Magento\Sales\Model\Order $order
-     * @param \Ksolves\Fam\Model\ResourceModel\Fam\CollectionFactory $famCollectionFactory
+     * @param \Ftl\Fam\Model\ResourceModel\Fam\CollectionFactory $famCollectionFactory
      */
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
@@ -156,20 +156,20 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         \Magento\Framework\View\Asset\Repository $assetRepos,
         \Magento\Catalog\Helper\ImageFactory $helperImageFactory,
         \Magento\Quote\Model\QuoteFactory $quoteFactory,
-        \Ksolves\Fam\Model\Config $config,
+        \Ftl\Fam\Model\Config $config,
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
         \Magento\Quote\Model\QuoteRepository $quoteRepository,
-        \Ksolves\Fam\Logger\Logger $logger,
+        \Ftl\Fam\Logger\Logger $logger,
         \Magento\Framework\HTTP\Client\Curl $curl,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
-        \Ksolves\Fam\Model\FamFactory $famFactory,
+        \Ftl\Fam\Model\FamFactory $famFactory,
         \Magento\Quote\Model\ResourceModel\Quote\CollectionFactory $quoteCollectionFactory,
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
         \Magento\Sales\Model\Service\InvoiceService $invoiceService,
         \Magento\Framework\DB\Transaction $transaction,
         \Magento\Sales\Model\Order\Email\Sender\InvoiceSender $invoiceSender,
         \Magento\Sales\Model\Order $order,
-        \Ksolves\Fam\Model\ResourceModel\Fam\CollectionFactory $famCollectionFactory,
+        \Ftl\Fam\Model\ResourceModel\Fam\CollectionFactory $famCollectionFactory,
         \Magento\Framework\App\ProductMetadataInterface $productMetadata,
         \Magento\Store\Model\StoreManagerInterface $storeManager
     ) {

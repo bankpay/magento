@@ -1,15 +1,15 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Controller\Payment;
+namespace Ftl\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\App\CsrfAwareActionInterface;
@@ -22,12 +22,12 @@ use Magento\Framework\App\Request\InvalidRequestException;
 class AdminWebhook extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
 {
     /**
-     * @var \Ksolves\Fam\Helper\Data
+     * @var \Ftl\Fam\Helper\Data
     */
     protected $_dataHelper;
 
     /**
-     * @var \Ksolves\Fam\Logger\Logger
+     * @var \Ftl\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -37,30 +37,30 @@ class AdminWebhook extends \Magento\Framework\App\Action\Action implements CsrfA
     protected $jsonHelper;
 
      /**
-     * @var \Ksolves\Fam\Model\Config
+     * @var \Ftl\Fam\Model\Config
      */
     protected $config;
 
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
-     * @param \Ksolves\Fam\Helper\Data $dataHelper
+     * @param \Ftl\Fam\Helper\Data $dataHelper
      * @param \Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface
      * @param \Magento\Quote\Api\CartManagementInterface $cartManagementInterface
      * @param \Magento\Sales\Model\Order $order
-     * @param \Ksolves\Fam\Logger\Logger $logger
+     * @param \Ftl\Fam\Logger\Logger $logger
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
-     * @param \Ksolves\Fam\Model\Config $config
+     * @param \Ftl\Fam\Model\Config $config
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
-        \Ksolves\Fam\Helper\Data $dataHelper,
+        \Ftl\Fam\Helper\Data $dataHelper,
         \Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface,
         \Magento\Quote\Api\CartManagementInterface $cartManagementInterface,
         \Magento\Sales\Model\Order $order,
-        \Ksolves\Fam\Logger\Logger $logger,
+        \Ftl\Fam\Logger\Logger $logger,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
-        \Ksolves\Fam\Model\Config $config,
+        \Ftl\Fam\Model\Config $config,
         \Magento\Quote\Model\QuoteManagementFactory $quoteManagement
     ) {
         parent::__construct($context);

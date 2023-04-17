@@ -1,14 +1,14 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
-namespace Ksolves\Fam\Plugin;
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
+namespace Ftl\Fam\Plugin;
 
 /**
 * Class ConfigPlugin
@@ -16,10 +16,10 @@ namespace Ksolves\Fam\Plugin;
 class ConfigPlugin 
 {
     /**
-     * @param \Ksolves\Fam\Model\Config $config
+     * @param \Ftl\Fam\Model\Config $config
      */
     public function __construct(
-        \Ksolves\Fam\Model\Config $config
+        \Ftl\Fam\Model\Config $config
     ) {
         $this->config = $config;
     }

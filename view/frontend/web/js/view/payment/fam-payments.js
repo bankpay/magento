@@ -1,12 +1,12 @@
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
  
 define(
     [
@@ -17,7 +17,7 @@ define(
         'use strict';
         rendererList.push({
             type: 'fam',
-            component: 'Ksolves_Fam/js/view/payment/method-renderer/fam-method'
+            component: 'Ftl_Fam/js/view/payment/method-renderer/fam-method'
         });
         /** Add view logic here if needed */
         return Component.extend({});

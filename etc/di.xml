@@ -1,33 +1,33 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Ksolves\Fam\Logger\Handler">
+    <type name="Ftl\Fam\Logger\Handler">
         <arguments>
             <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
         </arguments>
     </type>
-    <type name="Ksolves\Fam\Logger\Logger">
+    <type name="Ftl\Fam\Logger\Logger">
         <arguments>
             <argument name="name" xsi:type="string">fam</argument>
             <argument name="handlers"  xsi:type="array">
-                <item name="system" xsi:type="object">Ksolves\Fam\Logger\Handler</item>
+                <item name="system" xsi:type="object">Ftl\Fam\Logger\Handler</item>
             </argument>
         </arguments>
     </type>
     <type name="Magento\Config\Model\Config">
-        <plugin name="fam_admin_system_config_save_plugin" type="\Ksolves\Fam\Plugin\ConfigPlugin" sortOrder="1"/>
+        <plugin name="fam_admin_system_config_save_plugin" type="\Ftl\Fam\Plugin\ConfigPlugin" sortOrder="1"/>
     </type>
     <!-- Override Creditmemo Refund Button    -->
-    <preference for="\Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Items" type="\Ksolves\Fam\Block\Adminhtml\Order\Creditmemo\Create\Items"/>
+    <preference for="\Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Items" type="\Ftl\Fam\Block\Adminhtml\Order\Creditmemo\Create\Items"/>
 </config>

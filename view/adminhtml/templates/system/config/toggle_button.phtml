@@ -1,19 +1,19 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 ?>
 <?php $configPath = $this->getConfigPath(); ?>
 <?php $groupName = $this->getGroupName(); ?>
 <?php $fieldName = $this->getFieldName(); ?>
 <?php $inputFieldName = "groups[".$groupName."][fields][".$fieldName."][value]"; ?>
-<?php $isEnabled = $this->helper('Ksolves\Fam\Helper\FamHelper')->getConfig($configPath); ?>
+<?php $isEnabled = $this->helper('Ftl\Fam\Helper\FamHelper')->getConfig($configPath); ?>
 
 <label class="switch">
     <input type="checkbox" class="enable-disable-checkbox" name="<?php echo $inputFieldName; ?>" value="<?php echo $isEnabled; ?>">

@@ -1,17 +1,17 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Block\MinicartPopup;
+namespace Ftl\Fam\Block\MinicartPopup;
 
-use Ksolves\Fam\Block\OnsiteMessage as OnsiteMessage;
+use Ftl\Fam\Block\OnsiteMessage as OnsiteMessage;
 use Magento\Catalog\Block\ShortcutInterface;
 
 /**
@@ -26,7 +26,7 @@ class Messages extends OnsiteMessage implements ShortcutInterface
      *
      * @var string
      */
-    //protected $_template = 'Ksolves_Fam::cart/minicart_message.phtml';
+    //protected $_template = 'Ftl_Fam::cart/minicart_message.phtml';
 
     /**
      * @var bool
@@ -63,10 +63,10 @@ class Messages extends OnsiteMessage implements ShortcutInterface
         $this->isShoppingCart = $isShoppingCart;
 
         if ($isShoppingCart){
-            $this->_template = 'Ksolves_Fam::cart/cart_message.phtml';
+            $this->_template = 'Ftl_Fam::cart/cart_message.phtml';
         }
         else
-            $this->_template = 'Ksolves_Fam::cart/minicart_message.phtml';
+            $this->_template = 'Ftl_Fam::cart/minicart_message.phtml';
     }
 
     /**

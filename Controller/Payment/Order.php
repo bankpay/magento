@@ -1,22 +1,22 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Controller\Payment;
+namespace Ftl\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 
 /**
  * Order Class
 */
-class Order extends \Ksolves\Fam\Controller\BaseController
+class Order extends \Ftl\Fam\Controller\BaseController
 {
     /**
      * @var \Magento\Quote\Model\Quote
@@ -29,7 +29,7 @@ class Order extends \Ksolves\Fam\Controller\BaseController
     protected $checkoutSession;
 
     /**
-     * @var \Ksolves\Fam\Helper\Data
+     * @var \Ftl\Fam\Helper\Data
     */
     protected $dataHelper;
 
@@ -39,23 +39,23 @@ class Order extends \Ksolves\Fam\Controller\BaseController
     protected $_urlInterface;
 
     /**
-     * @var \Ksolves\Fam\Logger\Logger
+     * @var \Ftl\Fam\Logger\Logger
     */
     protected $_logger;
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
      * @param \Magento\Checkout\Model\Session $checkoutSession
-     * @param \Ksolves\Fam\Helper\Data $dataHelper
+     * @param \Ftl\Fam\Helper\Data $dataHelper
      * @param \Magento\Framework\UrlInterface $urlInterface  
-     * @param \Ksolves\Fam\Logger\Logger $logger
+     * @param \Ftl\Fam\Logger\Logger $logger
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Ksolves\Fam\Helper\Data $dataHelper,
+        \Ftl\Fam\Helper\Data $dataHelper,
         \Magento\Framework\UrlInterface $urlInterface,
-        \Ksolves\Fam\Logger\Logger $logger
+        \Ftl\Fam\Logger\Logger $logger
     ) {
         parent::__construct($context,$checkoutSession);
         $this->dataHelper = $dataHelper;

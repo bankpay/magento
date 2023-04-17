@@ -1,15 +1,15 @@
 <?php
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Block\Adminhtml\System\Config;
+namespace Ftl\Fam\Block\Adminhtml\System\Config;
 
 use Magento\Backend\Block\Template\Context;
 
@@ -22,7 +22,7 @@ class MerchantVerification extends \Magento\Config\Block\System\Config\Form\Fiel
      * Template path
      * @var string
      */
-    protected $_template = 'Ksolves_Fam::system/config/toggle_button.phtml';
+    protected $_template = 'Ftl_Fam::system/config/toggle_button.phtml';
 
     protected $_configPath = 'payment/fam/active';
 
@@ -31,18 +31,18 @@ class MerchantVerification extends \Magento\Config\Block\System\Config\Form\Fiel
     protected $_fieldName = 'active';
 
     /**
-     * @var \Ksolves\Fam\Model\Config
+     * @var \Ftl\Fam\Model\Config
     */
     protected $config;
 
     /**
      * @param Context $context
-     * @param \Ksolves\Fam\Model\Config $config
+     * @param \Ftl\Fam\Model\Config $config
      * @param array $data
      */
     public function __construct(
         Context $context,
-        \Ksolves\Fam\Model\Config $config,
+        \Ftl\Fam\Model\Config $config,
         array $data = []
     ) {
         parent::__construct($context, $data);

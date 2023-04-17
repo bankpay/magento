@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Ksolves
+ * Fam
  *
- * @category    Ksolves
- * @package     Ksolves_Fam
- * @author      Ksolves Team
- * @copyright   Copyright (c) Ksolves India Ltd.(https://www.ksolves.com/)
- * @license     https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Block;
+namespace Ftl\Fam\Block;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\Registry;
@@ -22,7 +22,7 @@ class OnsiteMessage extends Template
 {
   
     /**
-     * @var \Ksolves\Fam\Model\Config
+     * @var \Ftl\Fam\Model\Config
      */
     protected $config;
 
@@ -51,7 +51,7 @@ class OnsiteMessage extends Template
      * OnsiteMessage constructor.
      *
      * @param Template\Context $context
-     * @param \Ksolves\Fam\Model\Config $config
+     * @param \Ftl\Fam\Model\Config $config
      * @param Registry $registry
      * @param \Magento\Checkout\Helper\Data $checkoutHelper
      * @param \Magento\Checkout\Model\Session $checkoutSession
@@ -60,7 +60,7 @@ class OnsiteMessage extends Template
      */
     public function __construct(
         Template\Context $context,
-        \Ksolves\Fam\Model\Config $config,
+        \Ftl\Fam\Model\Config $config,
         Registry $registry,
         \Magento\Checkout\Helper\Data $checkoutHelper,
         \Magento\Checkout\Model\Session $checkoutSession,

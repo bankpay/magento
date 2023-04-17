@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Ksolves
+ * Fam
  *
- * @category  Ksolves
- * @package   Ksolves_Fam
- * @author    Ksolves Team
- * @copyright Copyright (c) Ksolves India Limited (https://www.ksolves.com/)
- * @license   https://store.ksolves.com/magento-license
- */
+ * @category  Fam
+ * @package   Ftl_Fam
+ * @author    Fam Team
+ * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
+ * @license   https://joinfam.com/legal
+ */ 
 
-namespace Ksolves\Fam\Model;
+namespace Ftl\Fam\Model;
 
 use Magento\Payment\Helper\Data as PaymentHelper;
-use Ksolves\Fam\Model\PaymentMethod;
+use Ftl\Fam\Model\PaymentMethod;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Framework\View\LayoutInterface;
 
@@ -24,7 +24,7 @@ class ConfigProvider implements ConfigProviderInterface
 {
 
     /**
-     * @var \Ksolves\Fam\Model\Config
+     * @var \Ftl\Fam\Model\Config
      */
     protected $config;
 
@@ -54,7 +54,7 @@ class ConfigProvider implements ConfigProviderInterface
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Magento\Customer\Model\Session $customerSession
      * @param \Magento\Framework\Url $urlBuilder
-     * @param \Ksolves\Fam\Model\Config $config
+     * @param \Ftl\Fam\Model\Config $config
      * @param LayoutInterface $layout
     */
     public function __construct(
@@ -63,7 +63,7 @@ class ConfigProvider implements ConfigProviderInterface
         \Magento\Framework\Url $urlBuilder,
         \Psr\Log\LoggerInterface $logger,
         PaymentHelper $paymentHelper,
-        \Ksolves\Fam\Model\Config $config,
+        \Ftl\Fam\Model\Config $config,
         \Magento\Checkout\Model\Session $checkoutSession,
         \Magento\Customer\Model\Session $customerSession,
         LayoutInterface $layout
@@ -101,8 +101,8 @@ class ConfigProvider implements ConfigProviderInterface
             ],
         ];
         $config['onsite_message'] = $this->layout
-                ->createBlock("Ksolves\Fam\Block\OnsiteMessage")
-                ->setTemplate("Ksolves_Fam::checkout/onsite-message-content.phtml")
+                ->createBlock("Ftl\Fam\Block\OnsiteMessage")
+                ->setTemplate("Ftl_Fam::checkout/onsite-message-content.phtml")
                 ->toHtml();
 
         return $config;
