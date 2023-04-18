@@ -3,13 +3,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Observer;
+namespace Fam\Fam\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
@@ -20,15 +20,15 @@ use Magento\Framework\Event\Observer;
 class PaymentMethodAvailable implements ObserverInterface
 {
     /**
-     * @var \Ftl\Fam\Model\Config
+     * @var \Fam\Fam\Model\Config
      */
     protected $config;
     
     /**
-     * @param  \Ftl\Fam\Model\Config $config,
+     * @param  \Fam\Fam\Model\Config $config,
      */
     public function __construct(
-        \Ftl\Fam\Model\Config $config
+        \Fam\Fam\Model\Config $config
     ) {
         $this->config = $config;
     }

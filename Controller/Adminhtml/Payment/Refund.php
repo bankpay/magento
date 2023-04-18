@@ -3,13 +3,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Controller\Adminhtml\Payment;
+namespace Fam\Fam\Controller\Adminhtml\Payment;
 
 use Magento\Backend\App\Action\Context;
 
@@ -24,17 +24,17 @@ class Refund extends \Magento\Backend\App\Action
     protected $backendQuoteSession;
 
     /**
-     * @var \Ftl\Fam\Helper\Data
+     * @var \Fam\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ftl\Fam\Logger\Logger
+     * @var \Fam\Fam\Logger\Logger
     */
     protected $_logger;
 
     /**
-     * @var \Ftl\Fam\Model\Config
+     * @var \Fam\Fam\Model\Config
     */
     protected $config;
 
@@ -91,9 +91,9 @@ class Refund extends \Magento\Backend\App\Action
      *
      * @param Context $context
      * @param \Magento\Backend\Model\Session\Quote $backendQuoteSession
-     * @param \Ftl\Fam\Helper\Data $dataHelper
-     * @param \Ftl\Fam\Logger\Logger $logger
-     * @param \Ftl\Fam\Model\Config $config
+     * @param \Fam\Fam\Helper\Data $dataHelper
+     * @param \Fam\Fam\Logger\Logger $logger
+     * @param \Fam\Fam\Model\Config $config
      * @param \Magento\Framework\HTTP\Client\Curl $curl
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
      * @param \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
@@ -107,9 +107,9 @@ class Refund extends \Magento\Backend\App\Action
     public function __construct(
         Context $context,
         \Magento\Backend\Model\Session\Quote $backendQuoteSession,
-        \Ftl\Fam\Helper\Data $dataHelper,
-        \Ftl\Fam\Logger\Logger $logger,
-        \Ftl\Fam\Model\Config $config,
+        \Fam\Fam\Helper\Data $dataHelper,
+        \Fam\Fam\Logger\Logger $logger,
+        \Fam\Fam\Model\Config $config,
         \Magento\Framework\HTTP\Client\Curl $curl,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,

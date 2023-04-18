@@ -4,7 +4,7 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
@@ -15,7 +15,7 @@
         <referenceBlock name="order.create.billing.method.form">
             <action method="setMethodFormTemplate">
                 <argument name="method" xsi:type="string">fam</argument>
-                <argument name="template" xsi:type="string">Ftl_Fam::form/fam_iframe.phtml</argument>
+                <argument name="template" xsi:type="string">Fam_Fam::form/fam_iframe.phtml</argument>
             </action>
         </referenceBlock>
     </body>

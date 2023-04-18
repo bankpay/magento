@@ -1,5 +1,5 @@
 {
-    "name": "ftl/fam",
+    "name": "Fam/fam",
     "type": "magento2-module",
     "description": "Shared component for accepting online payments in Magento 2 using the Fam payment gateway.",
     "version": "1.0.0",
@@ -16,7 +16,7 @@
     "autoload": {
         "files": [ "registration.php" ],
         "psr-4": {
-            "Ftl\\Fam\\": ""
+            "Fam\\Fam\\": ""
         }
     }
 }

@@ -4,7 +4,7 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
@@ -14,7 +14,7 @@
     <type name="Magento\Checkout\Model\CompositeConfigProvider">
         <arguments>
             <argument name="configProviders" xsi:type="array">
-                <item name="fam_config_provider" xsi:type="object">Ftl\Fam\Model\ConfigProvider</item>
+                <item name="fam_config_provider" xsi:type="object">Fam\Fam\Model\ConfigProvider</item>
             </argument>
         </arguments>
     </type>

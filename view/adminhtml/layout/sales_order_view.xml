@@ -4,7 +4,7 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
@@ -13,7 +13,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="order_additional_info">
-            <block class="Ftl\Fam\Block\Adminhtml\Order\View\FamPaymentInfo" name="fam_information" 
+            <block class="Fam\Fam\Block\Adminhtml\Order\View\FamPaymentInfo" name="fam_information" 
                 template="order/view/faminfo.phtml"/>
         </referenceBlock>
     </body>

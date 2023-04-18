@@ -3,20 +3,20 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Controller\Payment;
+namespace Fam\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 
 /**
  * Order Class
 */
-class Order extends \Ftl\Fam\Controller\BaseController
+class Order extends \Fam\Fam\Controller\BaseController
 {
     /**
      * @var \Magento\Quote\Model\Quote
@@ -29,7 +29,7 @@ class Order extends \Ftl\Fam\Controller\BaseController
     protected $checkoutSession;
 
     /**
-     * @var \Ftl\Fam\Helper\Data
+     * @var \Fam\Fam\Helper\Data
     */
     protected $dataHelper;
 
@@ -39,23 +39,23 @@ class Order extends \Ftl\Fam\Controller\BaseController
     protected $_urlInterface;
 
     /**
-     * @var \Ftl\Fam\Logger\Logger
+     * @var \Fam\Fam\Logger\Logger
     */
     protected $_logger;
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
      * @param \Magento\Checkout\Model\Session $checkoutSession
-     * @param \Ftl\Fam\Helper\Data $dataHelper
+     * @param \Fam\Fam\Helper\Data $dataHelper
      * @param \Magento\Framework\UrlInterface $urlInterface  
-     * @param \Ftl\Fam\Logger\Logger $logger
+     * @param \Fam\Fam\Logger\Logger $logger
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Ftl\Fam\Helper\Data $dataHelper,
+        \Fam\Fam\Helper\Data $dataHelper,
         \Magento\Framework\UrlInterface $urlInterface,
-        \Ftl\Fam\Logger\Logger $logger
+        \Fam\Fam\Logger\Logger $logger
     ) {
         parent::__construct($context,$checkoutSession);
         $this->dataHelper = $dataHelper;

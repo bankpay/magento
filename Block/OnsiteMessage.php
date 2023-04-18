@@ -4,13 +4,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Block;
+namespace Fam\Fam\Block;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\Registry;
@@ -22,7 +22,7 @@ class OnsiteMessage extends Template
 {
   
     /**
-     * @var \Ftl\Fam\Model\Config
+     * @var \Fam\Fam\Model\Config
      */
     protected $config;
 
@@ -51,7 +51,7 @@ class OnsiteMessage extends Template
      * OnsiteMessage constructor.
      *
      * @param Template\Context $context
-     * @param \Ftl\Fam\Model\Config $config
+     * @param \Fam\Fam\Model\Config $config
      * @param Registry $registry
      * @param \Magento\Checkout\Helper\Data $checkoutHelper
      * @param \Magento\Checkout\Model\Session $checkoutSession
@@ -60,7 +60,7 @@ class OnsiteMessage extends Template
      */
     public function __construct(
         Template\Context $context,
-        \Ftl\Fam\Model\Config $config,
+        \Fam\Fam\Model\Config $config,
         Registry $registry,
         \Magento\Checkout\Helper\Data $checkoutHelper,
         \Magento\Checkout\Model\Session $checkoutSession,

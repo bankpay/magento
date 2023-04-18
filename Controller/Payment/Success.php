@@ -3,20 +3,20 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Controller\Payment;
+namespace Fam\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 
 /**
  * Success Class
  */
-class Success extends \Ftl\Fam\Controller\BaseController
+class Success extends \Fam\Fam\Controller\BaseController
 {
     /**
      * @var \Magento\Quote\Model\Quote
@@ -29,32 +29,32 @@ class Success extends \Ftl\Fam\Controller\BaseController
     protected $checkoutSession;
 
     /**
-     * @var \Ftl\Fam\Helper\Data
+     * @var \Fam\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ftl\Fam\Logger\Logger
+     * @var \Fam\Fam\Logger\Logger
     */
     protected $_logger;
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
      * @param \Magento\Checkout\Model\Session $checkoutSession
-     * @param \Ftl\Fam\Helper\Data $dataHelper
+     * @param \Fam\Fam\Helper\Data $dataHelper
      * @param Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface
      * @param Magento\Quote\Api\CartManagementInterface $cartManagementInterface
      * @param Magento\Sales\Model\Order $order
-     * @param \Ftl\Fam\Logger\Logger $logger
+     * @param \Fam\Fam\Logger\Logger $logger
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Ftl\Fam\Helper\Data $dataHelper,
+        \Fam\Fam\Helper\Data $dataHelper,
         \Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface,
         \Magento\Quote\Api\CartManagementInterface $cartManagementInterface,
         \Magento\Sales\Model\Order $order,
-        \Ftl\Fam\Logger\Logger $logger,
+        \Fam\Fam\Logger\Logger $logger,
         \Magento\Quote\Model\QuoteManagement $quoteManagement
     ) {
         parent::__construct($context,$checkoutSession);

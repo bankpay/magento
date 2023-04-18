@@ -3,13 +3,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Block\Adminhtml;
+namespace Fam\Fam\Block\Adminhtml;
 
 use Magento\Framework\Phrase;
 use Magento\Quote\Model\Quote;
@@ -26,17 +26,17 @@ class SelectPaymentMethod extends \Magento\Backend\Block\Widget\Form\Generic
     private $adminCheckoutSession;
 
     /**
-     * @var \Ftl\Fam\Model\Config
+     * @var \Fam\Fam\Model\Config
     */
     protected $config;
     
     /**
      * @param AdminCheckoutSession $adminCheckoutSession
-     * @param \Ftl\Fam\Model\Config $config
+     * @param \Fam\Fam\Model\Config $config
     */
     public function __construct(
         AdminCheckoutSession $adminCheckoutSession,
-        \Ftl\Fam\Model\Config $config
+        \Fam\Fam\Model\Config $config
     ) {
         $this->adminCheckoutSession = $adminCheckoutSession;
         $this->config = $config;

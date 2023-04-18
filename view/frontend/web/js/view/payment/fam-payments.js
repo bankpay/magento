@@ -2,7 +2,7 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
@@ -17,7 +17,7 @@ define(
         'use strict';
         rendererList.push({
             type: 'fam',
-            component: 'Ftl_Fam/js/view/payment/method-renderer/fam-method'
+            component: 'Fam_Fam/js/view/payment/method-renderer/fam-method'
         });
         /** Add view logic here if needed */
         return Component.extend({});

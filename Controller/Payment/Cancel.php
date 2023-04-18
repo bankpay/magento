@@ -3,13 +3,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Controller\Payment;
+namespace Fam\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 
@@ -19,24 +19,24 @@ use Magento\Framework\Controller\ResultFactory;
 class Cancel extends \Magento\Framework\App\Action\Action
 {
     /**
-     * @var \Ftl\Fam\Helper\Data
+     * @var \Fam\Fam\Helper\Data
     */
     protected $dataHelper;
 
     /**
-     * @var \Ftl\Fam\Logger\Logger
+     * @var \Fam\Fam\Logger\Logger
     */
     protected $_logger;
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
-     * @param \Ftl\Fam\Helper\Data $dataHelper
-     * @param \Ftl\Fam\Logger\Logger $logger
+     * @param \Fam\Fam\Helper\Data $dataHelper
+     * @param \Fam\Fam\Logger\Logger $logger
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
-        \Ftl\Fam\Helper\Data $dataHelper,
-        \Ftl\Fam\Logger\Logger $logger
+        \Fam\Fam\Helper\Data $dataHelper,
+        \Fam\Fam\Logger\Logger $logger
     ) {
         parent::__construct($context);
         $this->dataHelper = $dataHelper;

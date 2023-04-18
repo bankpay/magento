@@ -4,16 +4,16 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Model;
+namespace Fam\Fam\Model;
 
 use Magento\Payment\Helper\Data as PaymentHelper;
-use Ftl\Fam\Model\PaymentMethod;
+use Fam\Fam\Model\PaymentMethod;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Framework\View\LayoutInterface;
 
@@ -24,7 +24,7 @@ class ConfigProvider implements ConfigProviderInterface
 {
 
     /**
-     * @var \Ftl\Fam\Model\Config
+     * @var \Fam\Fam\Model\Config
      */
     protected $config;
 
@@ -54,7 +54,7 @@ class ConfigProvider implements ConfigProviderInterface
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Magento\Customer\Model\Session $customerSession
      * @param \Magento\Framework\Url $urlBuilder
-     * @param \Ftl\Fam\Model\Config $config
+     * @param \Fam\Fam\Model\Config $config
      * @param LayoutInterface $layout
     */
     public function __construct(
@@ -63,7 +63,7 @@ class ConfigProvider implements ConfigProviderInterface
         \Magento\Framework\Url $urlBuilder,
         \Psr\Log\LoggerInterface $logger,
         PaymentHelper $paymentHelper,
-        \Ftl\Fam\Model\Config $config,
+        \Fam\Fam\Model\Config $config,
         \Magento\Checkout\Model\Session $checkoutSession,
         \Magento\Customer\Model\Session $customerSession,
         LayoutInterface $layout
@@ -101,8 +101,8 @@ class ConfigProvider implements ConfigProviderInterface
             ],
         ];
         $config['onsite_message'] = $this->layout
-                ->createBlock("Ftl\Fam\Block\OnsiteMessage")
-                ->setTemplate("Ftl_Fam::checkout/onsite-message-content.phtml")
+                ->createBlock("Fam\Fam\Block\OnsiteMessage")
+                ->setTemplate("Fam_Fam::checkout/onsite-message-content.phtml")
                 ->toHtml();
 
         return $config;

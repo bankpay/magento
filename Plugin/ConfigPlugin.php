@@ -3,12 +3,12 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
-namespace Ftl\Fam\Plugin;
+namespace Fam\Fam\Plugin;
 
 /**
 * Class ConfigPlugin
@@ -16,10 +16,10 @@ namespace Ftl\Fam\Plugin;
 class ConfigPlugin 
 {
     /**
-     * @param \Ftl\Fam\Model\Config $config
+     * @param \Fam\Fam\Model\Config $config
      */
     public function __construct(
-        \Ftl\Fam\Model\Config $config
+        \Fam\Fam\Model\Config $config
     ) {
         $this->config = $config;
     }

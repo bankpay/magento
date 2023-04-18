@@ -2,7 +2,7 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
@@ -30,7 +30,7 @@ define(
 
         return Component.extend({
             defaults: {
-                template: 'Ftl_Fam/payment/fam-form',
+                template: 'Fam_Fam/payment/fam-form',
                 famDataFrameLoaded: false,
                 jsLib : ''
             },

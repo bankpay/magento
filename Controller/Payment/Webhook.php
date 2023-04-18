@@ -3,13 +3,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Controller\Payment;
+namespace Fam\Fam\Controller\Payment;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\App\CsrfAwareActionInterface;
@@ -22,12 +22,12 @@ use Magento\Framework\App\Request\InvalidRequestException;
 class Webhook extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
 {
     /**
-     * @var \Ftl\Fam\Helper\Data
+     * @var \Fam\Fam\Helper\Data
     */
     protected $_dataHelper;
 
     /**
-     * @var \Ftl\Fam\Logger\Logger
+     * @var \Fam\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -37,30 +37,30 @@ class Webhook extends \Magento\Framework\App\Action\Action implements CsrfAwareA
     protected $jsonHelper;
 
      /**
-     * @var \Ftl\Fam\Model\Config
+     * @var \Fam\Fam\Model\Config
      */
     protected $config;
 
    
     /**
      * @param \Magento\Framework\App\Action\Context $context
-     * @param \Ftl\Fam\Helper\Data $dataHelper
+     * @param \Fam\Fam\Helper\Data $dataHelper
      * @param \Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface
      * @param \Magento\Quote\Api\CartManagementInterface $cartManagementInterface
      * @param \Magento\Sales\Model\Order $order
-     * @param \Ftl\Fam\Logger\Logger $logger
+     * @param \Fam\Fam\Logger\Logger $logger
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
-     * @param \Ftl\Fam\Model\Config $config
+     * @param \Fam\Fam\Model\Config $config
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
-        \Ftl\Fam\Helper\Data $dataHelper,
+        \Fam\Fam\Helper\Data $dataHelper,
         \Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface,
         \Magento\Quote\Api\CartManagementInterface $cartManagementInterface,
         \Magento\Sales\Model\Order $order,
-        \Ftl\Fam\Logger\Logger $logger,
+        \Fam\Fam\Logger\Logger $logger,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
-        \Ftl\Fam\Model\Config $config,
+        \Fam\Fam\Model\Config $config,
         \Magento\Quote\Model\QuoteManagementFactory $quoteManagement
     ) {
         parent::__construct($context);

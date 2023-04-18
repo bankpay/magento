@@ -3,13 +3,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Controller\Adminhtml\Payment;
+namespace Fam\Fam\Controller\Adminhtml\Payment;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Config\ScopeConfigInterface;
@@ -25,7 +25,7 @@ class Merchantapi extends \Magento\Backend\App\Action
     protected $backendQuoteSession;
 
     /**
-     * @var \Ftl\Fam\Helper\Data
+     * @var \Fam\Fam\Helper\Data
     */
     protected $dataHelper;
 
@@ -35,7 +35,7 @@ class Merchantapi extends \Magento\Backend\App\Action
     protected $urlBuider;
 
     /**
-     * @var \Ftl\Fam\Logger\Logger
+     * @var \Fam\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -44,16 +44,16 @@ class Merchantapi extends \Magento\Backend\App\Action
      *
      * @param Context $context
      * @param \Magento\Backend\Model\Session\Quote $backendQuoteSession
-     * @param \Ftl\Fam\Helper\Data $dataHelper
+     * @param \Fam\Fam\Helper\Data $dataHelper
      * @param \Magento\Framework\UrlInterface $urlBuilder
-     * @param \Ftl\Fam\Logger\Logger $logger
+     * @param \Fam\Fam\Logger\Logger $logger
      */
     public function __construct(
         Context $context,
         \Magento\Backend\Model\Session\Quote $backendQuoteSession,
-        \Ftl\Fam\Helper\Data $dataHelper,
+        \Fam\Fam\Helper\Data $dataHelper,
         \Magento\Framework\UrlInterface $urlBuilder,
-        \Ftl\Fam\Logger\Logger $logger
+        \Fam\Fam\Logger\Logger $logger
     ) {
         parent::__construct($context);
         $this->backendQuoteSession = $backendQuoteSession; 

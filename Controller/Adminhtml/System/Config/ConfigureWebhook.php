@@ -3,13 +3,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Controller\Adminhtml\System\Config;
+namespace Fam\Fam\Controller\Adminhtml\System\Config;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -27,7 +27,7 @@ class ConfigureWebhook extends Action
     protected $resultJsonFactory;
 
     /**
-     * @var \Ftl\Fam\Helper\Data
+     * @var \Fam\Fam\Helper\Data
     */
     protected $dataHelper;
 
@@ -37,7 +37,7 @@ class ConfigureWebhook extends Action
     protected $_storeManager;
 
     /**
-     * @var \Ftl\Fam\Logger\Logger
+     * @var \Fam\Fam\Logger\Logger
     */
     protected $_logger;
 
@@ -54,29 +54,29 @@ class ConfigureWebhook extends Action
     const CURL_WEBHOOK_STATUS = '200';
 
     /**
-     * @var \Ftl\Fam\Model\Config
+     * @var \Fam\Fam\Model\Config
     */
     protected $config;
 
     /**
      * @param Context $context
      * @param JsonFactory $resultJsonFactory
-     * @param \Ftl\Fam\Helper\Data $dataHelper
-     * @param \Ftl\Fam\Logger\Logger $logger 
+     * @param \Fam\Fam\Helper\Data $dataHelper
+     * @param \Fam\Fam\Logger\Logger $logger 
      * @param \Magento\Framework\HTTP\Client\Curl $curl
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonHelper
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
-     * @param \Ftl\Fam\Model\Config $config
+     * @param \Fam\Fam\Model\Config $config
      */
     public function __construct(
         Context $context,
         JsonFactory $resultJsonFactory,
-        \Ftl\Fam\Helper\Data $dataHelper,
+        \Fam\Fam\Helper\Data $dataHelper,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Ftl\Fam\Logger\Logger $logger,
+        \Fam\Fam\Logger\Logger $logger,
         \Magento\Framework\HTTP\Client\Curl $curl,
         \Magento\Framework\Serialize\Serializer\Json $jsonHelper,
-        \Ftl\Fam\Model\Config $config
+        \Fam\Fam\Model\Config $config
 
     ) {
         $this->resultJsonFactory = $resultJsonFactory;

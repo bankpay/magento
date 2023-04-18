@@ -3,18 +3,18 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Logger;
+namespace Fam\Fam\Logger;
 
 /**
  * Logger
  *
- * @package Ftl\Fam\Logger
+ * @package Fam\Fam\Logger
  */
 class Logger extends \Monolog\Logger
 {

@@ -3,13 +3,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Block\Adminhtml\Order\View;
+namespace Fam\Fam\Block\Adminhtml\Order\View;
 
 use Magento\Framework\DataObject;
 use Magento\Framework\Registry;
@@ -27,7 +27,7 @@ class FamPaymentInfo extends \Magento\Backend\Block\Template
     protected $registry = null;
 
     /**
-     * @var \Ftl\Fam\Helper\Data
+     * @var \Fam\Fam\Helper\Data
     */
     protected $dataHelper;
 
@@ -35,13 +35,13 @@ class FamPaymentInfo extends \Magento\Backend\Block\Template
     /**
      * @param Context $context
      * @param Registry $registry
-     * @param \Ftl\Fam\Helper\Data $dataHelper
+     * @param \Fam\Fam\Helper\Data $dataHelper
      * @param array $data
      */
     public function __construct(
         Context $context,
         Registry $registry,
-        \Ftl\Fam\Helper\Data $dataHelper,
+        \Fam\Fam\Helper\Data $dataHelper,
         array $data = []
     ) {
         $this->registry = $registry;

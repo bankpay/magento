@@ -3,13 +3,13 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
  */ 
 
-namespace Ftl\Fam\Observer;
+namespace Fam\Fam\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer;
@@ -30,7 +30,7 @@ class AddOnSiteMessage implements ObserverInterface
 
         /** @var \Magento\Framework\View\Element\Template $shortcutMessage */
         $shortcutMessage = $shortcutButtons->getLayout()->createBlock(
-            \Ftl\Fam\Block\MinicartPopup\Messages::class,
+            \Fam\Fam\Block\MinicartPopup\Messages::class,
             '',
             []
         );

@@ -4,7 +4,7 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
@@ -13,10 +13,10 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="header.container">
-            <block class="Ftl\Fam\Block\OnsiteMessage" name="osm" after="-" template="Ftl_Fam::default.phtml"/>
+            <block class="Fam\Fam\Block\OnsiteMessage" name="osm" after="-" template="Fam_Fam::default.phtml"/>
         </referenceBlock>
         <!-- <referenceContainer name="minicart.addons">
-           <block class="Ftl\Fam\Block\OnsiteMessage" name="minicart_message" template="Ftl_Fam::cart/minicart_message.phtml"></block>
+           <block class="Fam\Fam\Block\OnsiteMessage" name="minicart_message" template="Fam_Fam::cart/minicart_message.phtml"></block>
         </referenceContainer> -->
     </body> 
 </page>

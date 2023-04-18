@@ -4,7 +4,7 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
@@ -12,22 +12,22 @@
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Ftl\Fam\Logger\Handler">
+    <type name="Fam\Fam\Logger\Handler">
         <arguments>
             <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
         </arguments>
     </type>
-    <type name="Ftl\Fam\Logger\Logger">
+    <type name="Fam\Fam\Logger\Logger">
         <arguments>
             <argument name="name" xsi:type="string">fam</argument>
             <argument name="handlers"  xsi:type="array">
-                <item name="system" xsi:type="object">Ftl\Fam\Logger\Handler</item>
+                <item name="system" xsi:type="object">Fam\Fam\Logger\Handler</item>
             </argument>
         </arguments>
     </type>
     <type name="Magento\Config\Model\Config">
-        <plugin name="fam_admin_system_config_save_plugin" type="\Ftl\Fam\Plugin\ConfigPlugin" sortOrder="1"/>
+        <plugin name="fam_admin_system_config_save_plugin" type="\Fam\Fam\Plugin\ConfigPlugin" sortOrder="1"/>
     </type>
     <!-- Override Creditmemo Refund Button    -->
-    <preference for="\Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Items" type="\Ftl\Fam\Block\Adminhtml\Order\Creditmemo\Create\Items"/>
+    <preference for="\Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Items" type="\Fam\Fam\Block\Adminhtml\Order\Creditmemo\Create\Items"/>
 </config>

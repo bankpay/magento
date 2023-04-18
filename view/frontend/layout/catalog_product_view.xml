@@ -4,7 +4,7 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
@@ -13,11 +13,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="product.info.addtocart">
-            <block class="Ftl\Fam\Block\OnsiteMessage" name="product.info.fam_payments_message" template="Ftl_Fam::product/product_button.phtml" before="-" />
+            <block class="Fam\Fam\Block\OnsiteMessage" name="product.info.fam_payments_message" template="Fam_Fam::product/product_button.phtml" before="-" />
         </referenceBlock>
 
         <referenceBlock name="product.info.addtocart.additional">
-            <block name="product.info.addtocart.fam_payments_message.additional" class="Ftl\Fam\Block\OnsiteMessage" template="Ftl_Fam::product/product_button.phtml" before="-" />
+            <block name="product.info.addtocart.fam_payments_message.additional" class="Fam\Fam\Block\OnsiteMessage" template="Fam_Fam::product/product_button.phtml" before="-" />
         </referenceBlock>
     </body>
 </page>

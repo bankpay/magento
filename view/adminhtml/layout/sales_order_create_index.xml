@@ -4,7 +4,7 @@
  * Fam
  *
  * @category  Fam
- * @package   Ftl_Fam
+ * @package   Fam_Fam
  * @author    Fam Team
  * @copyright Copyright (c) Frictionless Technologies Ltd (https://www.joinfam.com/)
  * @license   https://joinfam.com/legal
@@ -13,12 +13,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="content">
-            <block class="Magento\Backend\Block\Template" template="Ftl_Fam::form/set-lib.phtml" name="set-lib"/>
+            <block class="Magento\Backend\Block\Template" template="Fam_Fam::form/set-lib.phtml" name="set-lib"/>
         </referenceBlock>
         <referenceBlock name="order_create_billing_form">
             <action method="setMethodFormTemplate">
                 <argument name="method" xsi:type="string">fam</argument>
-                <argument name="template" xsi:type="string">Ftl_Fam::form/fam_iframe.phtml</argument>
+                <argument name="template" xsi:type="string">Fam_Fam::form/fam_iframe.phtml</argument>
             </action>
         </referenceBlock>
     </body>
