@@ -425,7 +425,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             ),
             "items" => $this->getQuoteItems($quote->getId()),
             "merchant_checkout_id"=> $quote->getId(),
-            "merchant_enduser_id"=>"1234",
+            "merchant_enduser_id"=> $quote->getCustomerIsGuest() ? null : $quote->getCustomer()->getId(),
             "success_url"=> $successUrl,
             "cancel_url"=> $cancelUrl,
             "callback_url"=> $webhookUrl,
