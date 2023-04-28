@@ -12,10 +12,10 @@
 /** @var $block \Fam\Fam\Block\OnsiteMessage */
 ?>
 <?php if ($block->getWebsiteId()) : ?>
-    <?php if ($block->isEnabled("product_detail_page")) : ?>
+    <?php /** if ($block->isEnabled("product_detail_page")) : */ ?>
 
-        <fam-osm data-widget-type="callout" data-currency="GBP" data-total-amount="<?= $block->getPriceById() * 100?>" data-theme="<?= $block->getThemeColour("product_detail_page")?>" data-border-style="<?= $block->getLogoThemeColour("product_detail_page")?>">
-        </fam-osm>
+        <!-- <fam-osm data-widget-type="callout" data-currency="GBP" data-total-amount="<?= $block->getPriceById() * 100?>" data-theme="<?= $block->getThemeColour("product_detail_page")?>" data-border-style="<?= $block->getLogoThemeColour("product_detail_page")?>">
+        </fam-osm> -->
         
-    <?php endif; ?>
+    <?php/** endif; */?>
 <?php endif; ?>  

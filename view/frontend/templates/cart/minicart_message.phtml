@@ -12,10 +12,10 @@
 /** @var $block \Fam\Fam\Block\OnsiteMessage */
 ?>
 <?php if ($block->getWebsiteId()) : ?>
-    <?php if ($block->isEnabled("mini_cart_popup")) : ?>
+    <?php /** if ($block->isEnabled("mini_cart_popup")) : */?>
 
-        <fam-osm data-widget-type="callout" data-currency="GBP" data-total-amount="<?= $block->getQuoteTotal()*100?>" data-theme="<?= $block->getThemeColour("mini_cart_popup")?>" data-border-style="<?= $block->getLogoThemeColour("mini_cart_popup")?>" >
-        </fam-osm>
+        <!-- <fam-osm data-widget-type="callout" data-currency="GBP" data-total-amount="<?= $block->getQuoteTotal()*100?>" data-theme="<?= $block->getThemeColour("mini_cart_popup")?>" data-border-style="<?= $block->getLogoThemeColour("mini_cart_popup")?>" >
+        </fam-osm> -->
         
-    <?php endif; ?>
+    <?php /** endif; */?>
 <?php endif; ?>   

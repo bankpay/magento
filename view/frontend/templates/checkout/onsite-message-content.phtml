@@ -14,12 +14,12 @@
 <div charset="utf-8" id="fam.js" data-merchant-id="<?= $block->getMerchantId()?>" data-environment="<?= $block->getPaymentMode()?>"></div>
         
 <?php if ($block->getWebsiteId()) : ?>
-    <?php if ($block->isEnabled("checkout")) : ?>
+    <?php/** if ($block->isEnabled("checkout")) : */ ?>
 
-        <fam-osm data-widget-type="callout"  data-currency="GBP" data-total-amount="<?= $block->getQuoteTotal()*100?>" data-theme="<?= $block->getThemeColour("checkout")?>" data-border-style="<?= $block->getLogoThemeColour("checkout")?>" data-key="product_and_cart">
-        </fam-osm>
+        <!-- <fam-osm data-widget-type="callout"  data-currency="GBP" data-total-amount="<?= $block->getQuoteTotal()*100?>" data-theme="<?= $block->getThemeColour("checkout")?>" data-border-style="<?= $block->getLogoThemeColour("checkout")?>" data-key="product_and_cart">
+        </fam-osm> -->
 
-    <?php endif; ?>
+    <?php/** endif; */?>
 <?php endif; ?>   
 <script type="text/javascript">
     require(
