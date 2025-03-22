@@ -16,6 +16,11 @@ namespace Fam\Fam\Plugin;
 class ConfigPlugin 
 {
     /**
+     * \Fam\Fam\Model\Config
+     */
+    protected $config;
+
+    /**
      * @param \Fam\Fam\Model\Config $config
      */
     public function __construct(

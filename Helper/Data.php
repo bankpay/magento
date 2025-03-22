@@ -124,6 +124,26 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     protected $productMetadata;
     
     /**
+     * @var \Magento\Framework\View\Asset\Repository
+    */
+    protected $assetRepos;
+
+    /**
+     * @var \Magento\Catalog\Helper\ImageFactory
+    */
+    protected $helperImageFactory;
+
+    /**
+     * @var \Fam\Fam\Logger\Logger 
+    */
+    protected $logger;
+
+    /**
+     * @var \Magento\Store\Model\StoreManagerInterface
+    */
+    protected $storeManager;
+
+    /**
      * AbstractData constructor.
      *
      * @param \Magento\Framework\App\Helper\Context $context
