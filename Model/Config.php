@@ -114,11 +114,9 @@ class Config
     {
         $mode = $this->getMode();
         if ($mode == 'sandbox') {
-            return "https://api-staging-sandbox.joinfam.com";
+            return "https://api-sandbox.joinfam.com";
         }elseif ($mode == 'live') {
-           return "https://api-staging-live.joinfam.com";
-        }else{
-            return "https://api-staging-dev.joinfam.com";
+           return "https://api.joinfam.com";
         }
     }
 
