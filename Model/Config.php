@@ -213,9 +213,6 @@ class Config
      */
     public function isEnabledConfig($location)
     {
-        if (!$enabled)
-            return false;
-
         $activeLocations = explode(',', $this->getConfigData(self::KEY_ONSITE_MESSAGE_OPTION));
         if (!in_array($location, $activeLocations))
             return false;
