@@ -213,8 +213,6 @@ class Config
      */
     public function isEnabledConfig($location)
     {
-    
-        return $this->getConfigData('fam_onsite_message/'.self::KEY_ONSITE_MESSAGE_ENABLE.'_'.$location);
         if (!$enabled)
             return false;
 
